@@ -20,6 +20,15 @@ export const userLogin = createAsyncThunk(
   }
 );
 
+export const userLogout = createAsyncThunk(
+    "login, userLogout",
+    async () => {
+        const response = await fetch(`/logout`, {
+            method: "DELETE",
+  });
+  console.log(response);
+});
+
 
 
 const loginSlice = createSlice({
@@ -56,6 +65,22 @@ const loginSlice = createSlice({
       }
     },
     [userLogin.rejected]: (state) => {
+      state.isLoading = false;
+      state.hasError = true;
+    },
+    [userLogout.pending]: (state) => {
+      state.isLoading = true;
+      state.hasError = false;
+    },
+    [userLogout.fulfilled]: (state) => {
+      state.customer = {};
+      state.vendor = {};
+      state.customerLoggedIn = false;
+      state.vendorLoggedIn = false;
+      state.isLoading = false;
+      state.hasError = false;
+    },
+    [userLogout.rejected]: (state) => {
       state.isLoading = false;
       state.hasError = true;
     },

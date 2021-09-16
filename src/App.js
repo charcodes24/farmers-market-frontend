@@ -1,4 +1,5 @@
 import { Switch, Route, Redirect } from 'react-router';
+import { useDispatch, useSelector } from 'react-redux';
 
 import CustomerNavBar from './components/NavBar';
 import Login from './components/Login';
@@ -10,6 +11,7 @@ import CustomerHomePage from './components/CustomerHomePage';
 import Cart from './components/Cart';
 
 function App() {
+
   return (
     <div className="App">
       <CustomerNavBar />
