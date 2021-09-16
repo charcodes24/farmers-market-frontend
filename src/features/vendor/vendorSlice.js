@@ -11,11 +11,17 @@ export const getVendors = createAsyncThunk(
 const vendorSlice = createSlice({
   name: "vendors",
   initialState: {
-    vendorList: [],
+      vendorList: [],
+      vendor: {},
+      errors: [],
     isLoading: false,
     hasError: false,
   },
-  reducers: {},
+    reducers: {
+        getVendor(state, id) {
+            state.vendor = state.vendorList.filter(vendor => vendor.id === id)
+      }
+  },
   extraReducers: {
     [getVendors.pending]: (state) => {
       state.isLoading = true;
@@ -33,5 +39,5 @@ const vendorSlice = createSlice({
   },
 });
 
-export const { } = vendorSlice.actions
+export const { getVendor } = vendorSlice.actions
 export default vendorSlice.reducer
