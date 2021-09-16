@@ -34,7 +34,17 @@ export const userLogout = createAsyncThunk(
 const loginSlice = createSlice({
   name: "login",
   initialState: {},
-  reducers: {},
+  reducers: {
+    logIn(state, { payload }) {
+      if (payload.is_vendor === true) {
+        state.vendor = payload;
+        state.vendorLoggedIn = true;
+      } else {
+        state.customer = payload;
+        state.customerLoggedIn = true;
+      }
+    },
+  },
   extraReducers: {
     [userLogin.pending]: (state) => {
       state.isLoading = true;
@@ -87,5 +97,5 @@ const loginSlice = createSlice({
   },
 });
 
-export const { } = loginSlice.actions
+export const { logIn } = loginSlice.actions
 export default loginSlice.reducer

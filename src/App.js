@@ -1,5 +1,8 @@
+import { useEffect } from "react";
 import { Switch, Route, Redirect } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
+
+import { logIn } from './features/login/loginSlice';
 
 import CustomerNavBar from './components/NavBar';
 import Login from './components/Login';
@@ -11,6 +14,15 @@ import CustomerHomePage from './components/CustomerHomePage';
 import Cart from './components/Cart';
 
 function App() {
+  const dispatch = useDispatch()
+  
+  useEffect(() => {
+    fetch("/loggedin").then((res) => {
+      if (res.ok) {
+        res.json().then((user) => dispatch(logIn(user)));
+      }
+    });
+  }, []);
 
   return (
     <div className="App">
