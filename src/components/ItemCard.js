@@ -6,6 +6,7 @@ export default function ItemCard({ item }) {
         <div>
           <h3>{name}</h3>
           <h4>${price}</h4>
+          <button>Add Item</button>
         </div>
         <div>
           <img src={image_url} />
