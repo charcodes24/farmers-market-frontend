@@ -40,7 +40,8 @@ export const createCustomer = createAsyncThunk(
         Accept: "application/json",
       },
       body: JSON.stringify({
-        customer: {
+          customer: {
+            name: form.name,
           username: form.username,
           password: form.password,
           password_confirmation: form.password_confirmation,

@@ -8,7 +8,10 @@ import Loading from "./Loading";
 
 export default function CustomerSignup() {
     const dispatch = useDispatch()
+    const hasError = useSelector(state => state.login.hasError)
+    const errors = useSelector(state => state.login.errors)
     const [form, setForm] = useState({
+        name:"",
     username: "",
     password: "",
     password_confirmation: "",
@@ -28,33 +31,49 @@ export default function CustomerSignup() {
 
     return (
       <div>
-        <form onSubmit={handleSubmit}>
-          <input
-            onChange={handleInput}
-            type="text"
-            name="username"
-            value={form.username}
-            placeholder="username"
-          />
-          <input
-            onChange={handleInput}
-            type="text"
-            name="password"
-            value={form.password}
-            placeholder="password"
-          />
-          <input
-            onChange={handleInput}
-            type="text"
-            name="password_confirmation"
-            value={form.password_confirmation}
-            placeholder="re-type password"
-          />
-          <button>Sign Up!</button>
-          <Link to="/signup_vendor">
-            <button>Are you a vendor?</button>
-          </Link>
-        </form>
+        <div>
+          <form onSubmit={handleSubmit}>
+            <input
+              onChange={handleInput}
+              type="text"
+              name="name"
+              value={form.name}
+              placeholder="name"
+            />
+            <input
+              onChange={handleInput}
+              type="text"
+              name="username"
+              value={form.username}
+              placeholder="username"
+            />
+            <input
+              onChange={handleInput}
+              type="text"
+              name="password"
+              value={form.password}
+              placeholder="password"
+            />
+            <input
+              onChange={handleInput}
+              type="text"
+              name="password_confirmation"
+              value={form.password_confirmation}
+              placeholder="re-type password"
+            />
+            <button>Sign Up!</button>
+            <Link to="/signup_vendor">
+              <button>Are you a vendor?</button>
+            </Link>
+          </form>
+        </div>
+        {hasError ? (
+          <div>
+            {errors.map((error) => (
+              <h3>{error}</h3>
+            ))}
+          </div>
+        ) : null}
       </div>
     );
 
