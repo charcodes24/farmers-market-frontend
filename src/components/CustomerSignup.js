@@ -63,7 +63,7 @@ export default function CustomerSignup() {
             />
             <button>Sign Up!</button>
             <Link to="/signup_vendor">
-              <button>Are you a vendor?</button>
+              <p>Are you a vendor?</p>
             </Link>
           </form>
         </div>

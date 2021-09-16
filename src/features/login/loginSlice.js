@@ -54,6 +54,32 @@ export const createCustomer = createAsyncThunk(
   }
 );
 
+export const createVendor = createAsyncThunk(
+  "vendors/createVendor",
+  async (form) => {
+    const response = await fetch("/signupvendor", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({
+        vendor: {
+          name: form.name,
+          description: form.description,
+          username: form.username,
+          password: form.password,
+          password_confirmation: form.password_confirmation,
+          is_vendor: form.is_vendor,
+        },
+      }),
+    });
+    const data = await response.json();
+    console.log("CREATE VENDOR", data);
+    return data;
+  }
+);
+
 
 
 const loginSlice = createSlice({
@@ -138,6 +164,28 @@ const loginSlice = createSlice({
       }
     },
     [createCustomer.rejected]: (state) => {
+      state.isLoading = false;
+      state.hasError = true;
+    },
+    [createVendor.pending]: (state) => {
+      state.isLoading = true;
+      state.hasError = false;
+    },
+    [createVendor.fulfilled]: (state, { payload }) => {
+      if (payload.errors) {
+        state.errors = payload.errors;
+        state.vendorLoggedIn = false;
+        state.customerLoggedIn = false;
+        state.hasError = true;
+        state.isLoading = false;
+      } else {
+        state.vendor = payload;
+        state.vendorLoggedIn = true;
+        state.hasError = false;
+        state.isLoading = false;
+      }
+    },
+    [createVendor.rejected]: (state) => {
       state.isLoading = false;
       state.hasError = true;
     },
