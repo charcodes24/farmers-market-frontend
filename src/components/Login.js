@@ -1,6 +1,10 @@
 import { useState } from "react"
+import { useDispatch, useSelector } from "react-redux";
+
+import { userLogin } from "../features/login/loginSlice";
 
 export default function Login() {
+    const dispatch = useDispatch()
     const [form, setForm] = useState({
         username: "",
         password: ""
@@ -14,8 +18,9 @@ export default function Login() {
       });
     }
 
-    function handleSubmit() {
-        console.log('hi')
+    function handleSubmit(e) {
+        e.preventDefault()
+        dispatch(userLogin(form))
     }
 
     return (
