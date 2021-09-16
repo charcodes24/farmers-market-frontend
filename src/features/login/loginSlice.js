@@ -21,13 +21,37 @@ export const userLogin = createAsyncThunk(
 );
 
 export const userLogout = createAsyncThunk(
-    "login, userLogout",
+    "login/userLogout",
     async () => {
         const response = await fetch(`/logout`, {
             method: "DELETE",
   });
   console.log(response);
-});
+    });
+
+
+export const createCustomer = createAsyncThunk(
+  "login/createCustomer",
+  async (form) => {
+    const response = await fetch("/signup", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({
+        customer: {
+          username: form.username,
+          password: form.password,
+          password_confirmation: form.password_confirmation,
+        },
+      }),
+    });
+    const data = await response.json();
+    console.log("ERRORS IN SIGN UP", data);
+    return data;
+  }
+);
 
 
 
@@ -91,6 +115,28 @@ const loginSlice = createSlice({
       state.hasError = false;
     },
     [userLogout.rejected]: (state) => {
+      state.isLoading = false;
+      state.hasError = true;
+    },
+    [createCustomer.pending]: (state) => {
+      state.isLoading = true;
+      state.hasError = false;
+    },
+    [createCustomer.fulfilled]: (state, { payload }) => {
+      if (payload.errors) {
+        state.errors = payload.errors;
+        state.customerLoggedIn = false;
+        state.vendorLoggedIn = false;
+        state.hasError = true;
+        state.isLoading = false;
+      } else {
+        state.customer = payload;
+        state.customerLoggedIn = true;
+        state.hasError = false;
+        state.isLoading = false;
+      }
+    },
+    [createCustomer.rejected]: (state) => {
       state.isLoading = false;
       state.hasError = true;
     },
