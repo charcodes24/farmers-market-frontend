@@ -15,6 +15,8 @@ import Cart from './components/Cart';
 
 function App() {
   const dispatch = useDispatch()
+  const customerLoggedIn = useSelector(state => state.login.customerLoggedIn)
+  const vendorLoggedIn = useSelector((state) => state.login.vendorLoggedIn);
   
   useEffect(() => {
     fetch("/loggedin").then((res) => {
@@ -29,7 +31,7 @@ function App() {
       <CustomerNavBar />
       <Switch>
         <Route path="/login">
-          <Login />
+          {customerLoggedIn || vendorLoggedIn ? <Redirect to="/" /> : <Login />}
         </Route>
         <Route path="/signup_customer">
           <CustomerSignup />
