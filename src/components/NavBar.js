@@ -23,7 +23,7 @@ export default function CustomerNavBar() {
           <NavLink to="/login">Login</NavLink>
         )}
         {customerLoggedIn || vendorLoggedIn ? null : (
-          <NavLink to="/signup">Signup</NavLink>
+          <NavLink to="/signup_customer">Signup</NavLink>
         )}
         {customerLoggedIn ? <NavLink to="/cart">Cart</NavLink> : null}
         {customerLoggedIn || vendorLoggedIn ? (

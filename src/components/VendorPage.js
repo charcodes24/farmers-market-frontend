@@ -26,6 +26,8 @@ export default function VendorPage() {
             />
         )
     })
+  
+  console.log("VP", vendor)
 
     return (
       <div>

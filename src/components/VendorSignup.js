@@ -6,7 +6,8 @@ import { createVendor } from "../features/login/loginSlice";
 
 
 export default function VendorSignup() {
-    const dispatch = useDispatch()
+  const dispatch = useDispatch()
+  const errors = useSelector(state => state.login.errors)
     const [form, setForm] = useState({
       name: "",
       description: "",
@@ -15,6 +16,8 @@ export default function VendorSignup() {
       password_confirmation: "",
       is_vendor: true,
     });
+  
+  console.log(errors.length)
 
     function handleInput(e) {
       setForm({
@@ -31,44 +34,53 @@ export default function VendorSignup() {
 
     return (
       <div>
-        <form onSubmit={handleSubmit}>
-          <input
-            onChange={handleInput}
-            type="text"
-            name="name"
-            value={form.name}
-            placeholder="name"
-          />
-          <textarea
-            onChange={handleInput}
-            type="text"
-            name="description"
-            value={form.description}
-            placeholder="description"
-          />
-          <input
-            onChange={handleInput}
-            type="text"
-            name="username"
-            value={form.username}
-            placeholder="username"
-          />
-          <input
-            onChange={handleInput}
-            type="text"
-            name="password"
-            value={form.password}
-            placeholder="password"
-          />
-          <input
-            onChange={handleInput}
-            type="text"
-            name="password_confirmation"
-            value={form.password_confirmation}
-            placeholder="password confirmation"
-          />
-          <button>Sign Up!</button>
-        </form>
+        <div>
+          <form onSubmit={handleSubmit}>
+            <input
+              onChange={handleInput}
+              type="text"
+              name="name"
+              value={form.name}
+              placeholder="name"
+            />
+            <textarea
+              onChange={handleInput}
+              type="text"
+              name="description"
+              value={form.description}
+              placeholder="description"
+            />
+            <input
+              onChange={handleInput}
+              type="text"
+              name="username"
+              value={form.username}
+              placeholder="username"
+            />
+            <input
+              onChange={handleInput}
+              type="text"
+              name="password"
+              value={form.password}
+              placeholder="password"
+            />
+            <input
+              onChange={handleInput}
+              type="text"
+              name="password_confirmation"
+              value={form.password_confirmation}
+              placeholder="password confirmation"
+            />
+            <button>Sign Up!</button>
+          </form>
+        </div>
+        <div>
+          {errors.length > 0
+            ? errors.map((error) => (
+                <h3>{error}</h3>
+              ))
+            : null}
+        </div>
       </div>
     );
 }

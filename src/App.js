@@ -34,7 +34,7 @@ function App() {
           {customerLoggedIn || vendorLoggedIn ? <Redirect to="/" /> : <Login />}
         </Route>
         <Route path="/signup_customer">
-          <CustomerSignup />
+          {customerLoggedIn ? <Redirect to="/" /> : <CustomerSignup />}
         </Route>
         <Route path="/signup_vendor">
           <VendorSignup />
