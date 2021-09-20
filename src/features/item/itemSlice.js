@@ -19,7 +19,11 @@ const itemSlice = createSlice({
         isLoading: false,
         hasError: false
     },
-    reducers: {},
+  reducers: {
+    addToCart(state, { payload }) {
+      
+      }
+    },
     extraReducers: {
     [getItems.pending]: (state) => {
       state.isLoading = true;

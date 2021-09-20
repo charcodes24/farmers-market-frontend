@@ -23,6 +23,7 @@ function App() {
   console.log(cart)
   
   useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
     fetch("/loggedin").then((res) => {
       if (res.ok) {
         localStorage.setItem('cart', JSON.stringify(cart))
