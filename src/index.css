@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  font-family: 'Staatliches', cursive;
 }
 
 body {
@@ -34,4 +35,9 @@ code {
     padding: 25px;
     font-size: 45px;
     text-align: center;
+}
+
+.link {
+  text-decoration: none;
+  cursor: pointer;
 }

@@ -13,16 +13,17 @@ import VendorHomePage from './components/VendorHomePage';
 import CustomerHomePage from './components/CustomerHomePage';
 import Cart from './components/Cart';
 import Loading from "./components/Loading";
+import { showVendor } from "./features/vendor/vendorSlice";
 
 function App() {
   const dispatch = useDispatch()
   const customerLoggedIn = useSelector(state => state.login.customerLoggedIn)
-  const vendorLoggedIn = useSelector((state) => state.login.vendorLoggedIn);
+  const vendorLoggedIn = useSelector((state) => state.login.vendorLoggedIn)
   
   useEffect(() => {
     fetch("/loggedin").then((res) => {
       if (res.ok) {
-        res.json().then((user) => dispatch(logIn(user)));
+        res.json().then((user) => dispatch(logIn(user)))
       }
     });
   }, []);

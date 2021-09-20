@@ -23,7 +23,8 @@ const vendorSlice = createSlice({
     vendorList: [],
     vendor: {},
     errors: [],
-    isLoading: false,
+    isLoading: true,
+    isLoadingVendor: true,
     hasError: false,
   },
   reducers: {
@@ -48,7 +49,7 @@ const vendorSlice = createSlice({
     },
     [showVendor.fulfilled]: (state, { payload }) => {
       state.vendor = payload;
-      state.isLoading = false;
+      state.isLoadingVendor = false;
       state.hasError = false;
     },
     [showVendor.rejected]: (state) => {
