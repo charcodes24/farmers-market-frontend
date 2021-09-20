@@ -84,7 +84,9 @@ export const createVendor = createAsyncThunk(
 
 const loginSlice = createSlice({
   name: "login",
-  initialState: {},
+  initialState: {
+    errors: []
+  },
   reducers: {
     logIn(state, { payload }) {
       if (payload.is_vendor === true) {

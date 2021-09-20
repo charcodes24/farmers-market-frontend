@@ -15,6 +15,8 @@ export default function CustomerSignup() {
     password: "",
     password_confirmation: "",
     });
+  
+  console.log(errors)
 
     function handleInput(e) {
       setForm({
