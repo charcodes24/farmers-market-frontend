@@ -12,6 +12,7 @@ import VendorPage from './components/VendorPage';
 import VendorHomePage from './components/VendorHomePage';
 import CustomerHomePage from './components/CustomerHomePage';
 import Cart from './components/Cart';
+import Loading from "./components/Loading";
 
 function App() {
   const dispatch = useDispatch()
@@ -27,7 +28,8 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
+    <div className="app">
+      <Loading />
       <CustomerNavBar />
       <Switch>
         <Route path="/login">

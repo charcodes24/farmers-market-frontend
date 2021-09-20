@@ -6,7 +6,7 @@ export default function VendorCard({ vendor }) {
     console.log(vendor)
 
     return (
-        <div>
+        <div className="vendor card">
             <Link to={`/vendors/${id}`}>
                 <div>{name}</div>
             </Link>

@@ -1,3 +1,11 @@
+import { usePromiseTracker } from "react-promise-tracker";
+
 export default function Loading() {
-    return <h1>Page is loading...</h1>
+const { promiseInProgress } = usePromiseTracker();
+  
+    
+    return (
+        promiseInProgress &&
+        <h1>Page is loading...</h1>
+    ) 
 }

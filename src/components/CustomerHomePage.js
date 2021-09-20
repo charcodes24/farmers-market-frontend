@@ -9,8 +9,6 @@ export default function CustomerHomePage() {
     const dispatch = useDispatch()
     const vendors = useSelector(state => state.vendor.vendorList)
 
-    console.log("CHP", vendors)
-
     const displayVendors = vendors.map((vendor) => {
         return (
             <VendorCard
@@ -25,7 +23,7 @@ export default function CustomerHomePage() {
     }, []);
 
     return (
-        <div>
+        <div className="vendors">
             {displayVendors}
         </div>
     )

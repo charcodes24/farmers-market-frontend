@@ -20,16 +20,13 @@ export const showVendor = createAsyncThunk(
 const vendorSlice = createSlice({
   name: "vendors",
   initialState: {
-      vendorList: [],
-      vendor: {},
-      errors: [],
+    vendorList: [],
+    vendor: {},
+    errors: [],
     isLoading: false,
     hasError: false,
   },
-    reducers: {
-        getVendor(state, id) {
-            state.vendor = state.vendorList.filter(vendor => vendor.id === id)
-      }
+  reducers: {
   },
   extraReducers: {
     [getVendors.pending]: (state) => {
@@ -42,6 +39,19 @@ const vendorSlice = createSlice({
       state.hasError = false;
     },
     [getVendors.rejected]: (state) => {
+      state.isLoading = false;
+      state.hasError = true;
+    },
+    [showVendor.pending]: (state) => {
+      state.isLoading = true;
+      state.hasError = false;
+    },
+    [showVendor.fulfilled]: (state, { payload }) => {
+      state.vendor = payload;
+      state.isLoading = false;
+      state.hasError = false;
+    },
+    [showVendor.rejected]: (state) => {
       state.isLoading = false;
       state.hasError = true;
     },
