@@ -20,9 +20,6 @@ const itemSlice = createSlice({
         hasError: false
     },
   reducers: {
-    addToCart(state, { payload }) {
-      
-      }
     },
     extraReducers: {
     [getItems.pending]: (state) => {

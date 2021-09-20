@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Switch, Route, Redirect } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -14,23 +14,24 @@ import CustomerHomePage from './components/CustomerHomePage';
 import Cart from './components/Cart';
 import Loading from "./components/Loading";
 
+const cartFromLocalStorage = JSON.parse(localStorage.getItem('cart') || '[]')
+
 function App() {
   const dispatch = useDispatch()
   const customerLoggedIn = useSelector(state => state.login.customerLoggedIn)
   const vendorLoggedIn = useSelector((state) => state.login.vendorLoggedIn)
-  const cart = useSelector(state => state.cart.cartItems)
+  const [cart, setCart] = useState(cartFromLocalStorage)
 
-  console.log(cart)
+  console.log("CART IN APP", cart)
   
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
     fetch("/loggedin").then((res) => {
       if (res.ok) {
-        localStorage.setItem('cart', JSON.stringify(cart))
         res.json().then((user) => dispatch(logIn(user)))
       }
     });
-  }, []);
+  }, [cart]);
 
   return (
     <div className="app">
@@ -47,7 +48,7 @@ function App() {
           <VendorSignup />
         </Route>
         <Route path="/vendors/:id">
-          <VendorPage />
+          <VendorPage cart={cart} setCart={setCart}/>
         </Route>
         <Route path="/cart">
           <Cart />

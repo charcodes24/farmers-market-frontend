@@ -8,7 +8,7 @@ import { showVendor } from "../features/vendor/vendorSlice";
 import ItemCard from "./ItemCard";
 import Loading from "./Loading";
 
-export default function VendorPage() {
+export default function VendorPage({ cart, setCart }) {
   const { id } = useParams();
   const dispatch = useDispatch();
   const items = useSelector(state => state.vendor.vendor.items)
@@ -23,18 +23,11 @@ export default function VendorPage() {
     dispatch(showVendor(id));
   }, []);
 
-  // const displayItems = items.map((item) => (
-  //   <ItemCard key={item.id} item={item} />
-  // ));
-
-
-  // console.log("DISPLAY", displayItems)
-
 
   if (loading) {
     return <Loading />
   } else {
-    const displayItems = items.map((item) => <ItemCard key={item.id} item={item}/>)
+    const displayItems = items.map((item) => <ItemCard key={item.id} item={item} cart={cart} setCart={setCart}/>)
     return (
       <div>
         <h1>{vendor.name}</h1>
