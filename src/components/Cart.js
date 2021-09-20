@@ -1,3 +1,13 @@
-export default function Cart() {
-    return <h1>Cart</h1>
+import CartItem from "./CartItem"
+
+export default function Cart({ cart, setCart }) {
+    
+    const displayCart = cart.map(item => <CartItem key={item.id} item={item} cart={cart} setCart={setCart}/>)
+
+
+    return (
+        <div>
+            {displayCart}
+        </div>
+    )
 }

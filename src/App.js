@@ -51,7 +51,7 @@ function App() {
           <VendorPage cart={cart} setCart={setCart}/>
         </Route>
         <Route path="/cart">
-          <Cart />
+          <Cart cart={cart} setCart={setCart}/>
         </Route>
         <Route path="/mypage">
           <VendorHomePage />
