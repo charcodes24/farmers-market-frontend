@@ -13,16 +13,19 @@ import VendorHomePage from './components/VendorHomePage';
 import CustomerHomePage from './components/CustomerHomePage';
 import Cart from './components/Cart';
 import Loading from "./components/Loading";
-import { showVendor } from "./features/vendor/vendorSlice";
 
 function App() {
   const dispatch = useDispatch()
   const customerLoggedIn = useSelector(state => state.login.customerLoggedIn)
   const vendorLoggedIn = useSelector((state) => state.login.vendorLoggedIn)
+  const cart = useSelector(state => state.cart.cartItems)
+
+  console.log(cart)
   
   useEffect(() => {
     fetch("/loggedin").then((res) => {
       if (res.ok) {
+        localStorage.setItem('cart', JSON.stringify(cart))
         res.json().then((user) => dispatch(logIn(user)))
       }
     });
