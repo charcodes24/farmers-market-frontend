@@ -1,13 +1,24 @@
+
+
 import CartItem from "./CartItem"
 
-export default function Cart({ cart, setCart }) {
+export default function Cart({ cart, setCart, quantity }) {
+    const displayCart = cart.map(item => <CartItem key={item.id} item={item} cart={cart} setCart={setCart} quantity={quantity}/>)
     
-    const displayCart = cart.map(item => <CartItem key={item.id} item={item} cart={cart} setCart={setCart}/>)
+    function clearCart() {
+        setCart([])
+    }
 
 
     return (
+      <div>
         <div>
-            {displayCart}
+                <button onClick={clearCart}>Clear Cart</button>
         </div>
-    )
+            <div>{displayCart}</div>
+            <div>
+                <button>Place Order</button>
+        </div>
+      </div>
+    );
 }

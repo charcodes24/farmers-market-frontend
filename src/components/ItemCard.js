@@ -1,12 +1,23 @@
+import { useState } from "react";
+
+import { incrementQuantity } from "../features/cart/cartSlice";
+
 import { useDispatch, useSelector } from "react-redux";
 
 export default function ItemCard({ item, cart, setCart }) {
-    const vendorLoggedIn = useSelector(state => state.login.vendorLoggedIn)
+  const dispatch = useDispatch()
   const { id, name, image_url, price } = item
   
   function addToCart(item) {
-    setCart((mostUpdatedCart) => [...mostUpdatedCart, item])
+    const existingItem = cart.find(item => item.id === id)
+    if (existingItem) {
+      dispatch(incrementQuantity(item))
+    } else {
+      setCart((mostUpdatedCart) => [...mostUpdatedCart, item]);
+      dispatch(incrementQuantity(item))
+    }
   }
+
     
 
     return (

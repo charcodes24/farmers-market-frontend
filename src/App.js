@@ -21,6 +21,7 @@ function App() {
   const customerLoggedIn = useSelector(state => state.login.customerLoggedIn)
   const vendorLoggedIn = useSelector((state) => state.login.vendorLoggedIn)
   const [cart, setCart] = useState(cartFromLocalStorage)
+  const [quantity, setQuantity] = useState(0)
 
   console.log("CART IN APP", cart)
   
@@ -48,10 +49,10 @@ function App() {
           <VendorSignup />
         </Route>
         <Route path="/vendors/:id">
-          <VendorPage cart={cart} setCart={setCart}/>
+          <VendorPage cart={cart} setCart={setCart} quantity={quantity} setQuantity={setQuantity}/>
         </Route>
         <Route path="/cart">
-          <Cart cart={cart} setCart={setCart}/>
+          <Cart cart={cart} setCart={setCart} quantity={quantity} setQuantity={setQuantity}/>
         </Route>
         <Route path="/mypage">
           <VendorHomePage />
