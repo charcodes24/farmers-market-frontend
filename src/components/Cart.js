@@ -4,7 +4,7 @@ import { clearCart } from "../features/cart/cartSlice";
 
 import CartItem from "./CartItem"
 
-export default function Cart({ cart, setCart, quantity }) {
+export default function Cart({ cart, setCart }) {
   const dispatch = useDispatch()
 
     const displayCart = cart.map(item => <CartItem key={item.id} item={item} cart={cart} setCart={setCart}/>)

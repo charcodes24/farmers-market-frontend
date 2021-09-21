@@ -18,7 +18,7 @@ const cartSlice = createSlice({
       }
     },
     decrementQuantity(state, { payload }) {
-        state.quantity[payload.name] -= 1;
+        state.quantity[payload.name].quantity -= 1;
       },
       clearCart(state) {
           state.quantity = {}

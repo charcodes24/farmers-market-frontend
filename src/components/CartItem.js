@@ -5,8 +5,8 @@ import { decrementQuantity } from "../features/cart/cartSlice";
 
 export default function CartItem({ item, cart, setCart }) {
   const dispatch = useDispatch()
-    const { id, name, image_url, price } = item
-  const quantity = useSelector((state) => state.cart.quantity[name])
+  const { id, name, image_url, price } = item
+  const quantity = useSelector((state) => state.cart.quantity[name].quantity)
 
   console.log("QUANTITY", quantity)
 
@@ -18,8 +18,7 @@ export default function CartItem({ item, cart, setCart }) {
       setCart(updatedCart)
     }
   }
-    
-  console.log("QUANTITY", quantity)
+
     return (
       <div>
         <div>
