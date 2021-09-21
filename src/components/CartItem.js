@@ -8,6 +8,8 @@ export default function CartItem({ item, cart, setCart }) {
     const { id, name, image_url, price } = item
   const quantity = useSelector((state) => state.cart.quantity[name])
 
+  console.log("QUANTITY", quantity)
+
   function removeItem() {
     if (quantity > 1) {
       dispatch(decrementQuantity(item))
@@ -21,7 +23,7 @@ export default function CartItem({ item, cart, setCart }) {
     return (
       <div>
         <div>
-          <img src={image_url} />
+          <img src={image_url} alt={item.name}/>
         </div>
         <div>
           <h1>{name}</h1>

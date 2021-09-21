@@ -31,7 +31,7 @@ function App() {
         res.json().then((user) => dispatch(logIn(user)))
       }
     });
-  }, [cart]);
+  }, [cart, dispatch]);
 
   return (
     <div className="app">

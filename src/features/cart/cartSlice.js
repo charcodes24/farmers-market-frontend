@@ -9,9 +9,12 @@ const cartSlice = createSlice({
   reducers: {
     incrementQuantity(state, { payload }) {
       if (payload.name in state.quantity) {
-        state.quantity[payload.name] += 1;
+        state.quantity[payload.name].quantity += 1;
       } else {
-        state.quantity[payload.name] = 1;
+          state.quantity[payload.name] = {
+              quantity: 1,
+              price: payload.price
+        }
       }
     },
     decrementQuantity(state, { payload }) {

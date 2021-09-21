@@ -7,7 +7,7 @@ import CartItem from "./CartItem"
 export default function Cart({ cart, setCart, quantity }) {
   const dispatch = useDispatch()
 
-    const displayCart = cart.map(item => <CartItem key={item.id} item={item} cart={cart} setCart={setCart} quantity={quantity}/>)
+    const displayCart = cart.map(item => <CartItem key={item.id} item={item} cart={cart} setCart={setCart}/>)
     
     function handleClearCart() {
       setCart([])
@@ -20,9 +20,14 @@ export default function Cart({ cart, setCart, quantity }) {
         <div>
                 <button onClick={handleClearCart}>Clear Cart</button>
         </div>
-            <div>{displayCart}</div>
-            <div>
-                <button>Place Order</button>
+        <div>
+          {displayCart}
+        </div>
+        <div>
+          <h2>Total: </h2>
+        </div>
+        <div>
+            <button>Place Order</button>
         </div>
       </div>
     );

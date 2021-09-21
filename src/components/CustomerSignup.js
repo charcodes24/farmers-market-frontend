@@ -1,10 +1,8 @@
 import { useState } from "react"
-import { Link, useHistory } from "react-router-dom"
+import { Link } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 
 import { createCustomer } from "../features/login/loginSlice";
-
-import Loading from "./Loading";
 
 export default function CustomerSignup() {
     const dispatch = useDispatch()

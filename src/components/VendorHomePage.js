@@ -14,7 +14,7 @@ export default function VendorHomePage() {
 
     useEffect(() => {
         dispatch(getItems(`${vendor.id}`))
-    }, []);
+    }, [dispatch, vendor.id]);
 
     const displayItems = items.map(item => {
         return (

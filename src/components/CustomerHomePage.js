@@ -20,7 +20,7 @@ export default function CustomerHomePage() {
 
     useEffect(() => {
         dispatch(getVendors())
-    }, []);
+    }, [dispatch]);
 
     return (
         <div className="vendors">

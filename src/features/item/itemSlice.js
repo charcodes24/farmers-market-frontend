@@ -46,5 +46,4 @@ const itemSlice = createSlice({
     }
 })
 
-export const { } = itemSlice.actions
 export default itemSlice.reducer

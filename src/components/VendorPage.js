@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { useParams } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
-import { trackPromise } from "react-promise-tracker";
 
 import { showVendor } from "../features/vendor/vendorSlice";
 
@@ -15,13 +14,10 @@ export default function VendorPage({ cart, setCart, quantity, setQuantity }) {
   const vendor = useSelector(state => state.vendor.vendor)
   const loading = useSelector(state => state.vendor.isLoadingVendor)
   
-  console.log("ITEMS", items)
-  console.log("VENDOR", vendor.items)
-  
 
   useEffect(() => {
     dispatch(showVendor(id));
-  }, []);
+  }, [dispatch, id]);
 
 
   if (loading) {

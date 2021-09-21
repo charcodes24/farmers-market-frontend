@@ -1,8 +1,7 @@
-import { useState } from "react";
 
 import { incrementQuantity } from "../features/cart/cartSlice";
 
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 export default function ItemCard({ item, cart, setCart }) {
   const dispatch = useDispatch()
@@ -23,7 +22,7 @@ export default function ItemCard({ item, cart, setCart }) {
     return (
       <div>
         <div>
-          <img src={image_url} />
+          <img src={image_url} alt={name}/>
         </div>
         <div>
           <h3>{name}</h3>
