@@ -30,7 +30,7 @@ export default function CartItem({ item, cart, setCart }) {
           <h3>Quantity: {quantity}</h3>
         </div>
         <div>
-            <button onClick={removeItem}>Remove Item</button>
+          <button onClick={removeItem}>{quantity === 1 ? "Remove Item" : "Decrease Quantity"}</button>
         </div>
       </div>
     );
