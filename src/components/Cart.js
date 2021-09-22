@@ -1,18 +1,31 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
-import { clearCart } from "../features/cart/cartSlice";
+import { clearCart, createOrder } from "../features/cart/cartSlice";
 
 import CartItem from "./CartItem"
 
 export default function Cart({ cart, setCart }) {
   const dispatch = useDispatch()
+  const customer = useSelector(state => state.login.customer)
+  const total = useSelector(state => state.cart.total)
 
-    const displayCart = cart.map(item => <CartItem key={item.id} item={item} cart={cart} setCart={setCart}/>)
+  console.log("CART", cart)
+
+  const displayCart = cart.map(item => <CartItem key={item.id} item={item} cart={cart} setCart={setCart} />)
+  
+  const cartIds = cart.map(item => item.id)
+
+  console.log(cartIds)
     
     function handleClearCart() {
       setCart([])
       dispatch(clearCart())
     }
+  
+  function handlePlaceOrder() {
+    debugger
+    dispatch(createOrder({customer_id: customer.id, total, item_ids: cartIds}))
+  }
 
 
     return (
@@ -24,10 +37,10 @@ export default function Cart({ cart, setCart }) {
           {displayCart}
         </div>
         <div>
-          <h2>Total: </h2>
+          <h2>Total: {total}</h2>
         </div>
         <div>
-            <button>Place Order</button>
+            <button onClick={handlePlaceOrder}>Place Order</button>
         </div>
       </div>
     );

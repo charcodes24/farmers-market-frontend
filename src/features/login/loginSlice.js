@@ -7,7 +7,7 @@ export const userLogin = createAsyncThunk(
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Accept: "application/json",
+        "Accept": "application/json",
       },
       body: JSON.stringify({
         username: form.username,
@@ -15,7 +15,6 @@ export const userLogin = createAsyncThunk(
       }),
     });
     const data = await response.json();
-    console.log("USER LOGIN SLICE", data);
     return data;
   }
 );

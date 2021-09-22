@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { logIn } from './features/login/loginSlice';
 
-import CustomerNavBar from './components/NavBar';
+import NavBar from './components/NavBar';
 import Login from './components/Login';
 import CustomerSignup from './components/CustomerSignup';
 import VendorSignup from './components/VendorSignup';
@@ -36,7 +36,7 @@ function App() {
   return (
     <div className="app">
       <Loading />
-      <CustomerNavBar />
+      <NavBar setCart={setCart}/>
       <Switch>
         <Route path="/login">
           {customerLoggedIn || vendorLoggedIn ? <Redirect to="/" /> : <Login />}

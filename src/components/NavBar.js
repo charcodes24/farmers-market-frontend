@@ -3,16 +3,17 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { userLogout } from "../features/login/loginSlice";
 
-export default function CustomerNavBar() {
+export default function CustomerNavBar({ setCart }) {
     const customerLoggedIn = useSelector(state => state.login.customerLoggedIn)
     const vendorLoggedIn = useSelector(state => state.login.vendorLoggedIn)
     const dispatch = useDispatch()
     const history = useHistory()
 
     function handleLogout(e) {
-        e.preventDefault()
-        dispatch(userLogout())
-        history.push('/')
+      e.preventDefault()
+      dispatch(userLogout())
+      setCart([])
+      history.push('/')
     }
 
     return (
