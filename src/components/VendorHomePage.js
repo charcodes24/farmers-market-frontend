@@ -39,10 +39,10 @@ export default function VendorHomePage() {
           <h1>{vendor.name}</h1>
         </div>
         <div>
-                <button onClick={handleToggleForm}>Add Item</button>
-                {toggleForm ? <AddItem /> : null}
+          <button onClick={handleToggleForm}>Add Item</button>
+          {toggleForm ? <AddItem /> : null}
         </div>
-        <div>{displayItems}</div>
+        <div className="item">{displayItems}</div>
       </div>
     );
 }

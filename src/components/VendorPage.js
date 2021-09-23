@@ -28,7 +28,7 @@ export default function VendorPage({ cart, setCart, quantity, setQuantity }) {
       <div>
         <h1>{vendor.name}</h1>
         <p>{vendor.description}</p>
-        <div>{displayItems}</div>
+        <div className="item">{displayItems}</div>
       </div>
     );
     
