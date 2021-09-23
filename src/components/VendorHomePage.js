@@ -1,20 +1,24 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 
 import { getItems } from "../features/item/itemSlice"
 import ItemCard from "./ItemCard"
+import AddItem from "./AddItem"
 
 export default function VendorHomePage() {
+    //REACT STATE
+    const [toggleForm, setToggleForm] = useState(false)
+
+    //REDUX
     const dispatch = useDispatch()
     const vendor = useSelector(state => state.login.vendor)
     const items = useSelector(state => state.item.items)
-
-    console.log(items)
+    const itemLoading = useSelector(state => state.item.isLoading)
 
 
     useEffect(() => {
         dispatch(getItems(`${vendor.id}`))
-    }, [dispatch, vendor.id]);
+    }, [dispatch]);
 
     const displayItems = items.map(item => {
         return (
@@ -24,13 +28,21 @@ export default function VendorHomePage() {
             />
         )
     })
+
+    function handleToggleForm() {
+        setToggleForm(!toggleForm)
+    }
     
     return (
       <div>
-            <h1>{vendor.name}</h1>
-            <div>
-                {displayItems}
-            </div>
+        <div>
+          <h1>{vendor.name}</h1>
+        </div>
+        <div>
+                <button onClick={handleToggleForm}>Add Item</button>
+                {toggleForm ? <AddItem /> : null}
+        </div>
+        <div>{displayItems}</div>
       </div>
     );
 }
