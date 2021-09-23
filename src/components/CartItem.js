@@ -13,7 +13,7 @@ export default function CartItem({ item }) {
 
 
     return (
-      <div>
+      <div className="cart-card">
         <div>
           <h1>{name}</h1>
           <h2>Price: {price}</h2>

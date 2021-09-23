@@ -27,23 +27,23 @@ const cartSlice = createSlice({
     total: 0
   },
   reducers: {
-    // addItemToCart(state, { payload }) {
-    //   const existingItem = state.cartItems.find(item => item.id === payload.id)
-    //   if (!existingItem) {
-    //     state.cartItems.push({ id: payload.id, name: payload.name, price: payload.price, quantity: 1 })
-    //     state.total += payload.price
-    //   } else {
-    //     existingItem.quantity++
-    //     state.total += payload.price
-    //   }
-    // },
+    addItemToCart(state, { payload }) {
+      const existingItem = state.cartItems.find(item => item.id === payload.id)
+      if (!existingItem) {
+        state.cartItems.push({ id: payload.id, name: payload.name, price: payload.price, quantity: 1 })
+        state.total += payload.price
+      } else {
+        existingItem.quantity++
+        state.total += payload.price
+      }
+    },
     // decreaseQuantity({ payload }) {
     //   payload.quantity -= 1
     // },
-    addItemToCart(state, { payload }) {
-      state.cartItems.push(payload)
-      state.total += payload.price 
-    },
+    // addItemToCart(state, { payload }) {
+    //   state.cartItems.push(payload)
+    //   state.total += payload.price 
+    // },
     removeItemFromCart(state, { payload }) {
       const updatedCart = state.cartItems.filter(
         (item) => item.id !== payload.id

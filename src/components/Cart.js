@@ -10,23 +10,27 @@ export default function Cart() {
   const customer = useSelector((state) => state.login.customer);
   const total = useSelector((state) => state.cart.total);
 
-  console.log("CARTITEMS", cartItems);
+  console.log("CARTITEMS", cartItems)
 
-  const removeDups = new Set();
+  //DISPLAYING ITEMS 
+  const displayCart = cartItems.map(item => <CartItem key={item.id} item={item} />)
 
-  const filteredCart = cartItems.filter((el) => {
-    const duplicate = removeDups.has(el.id);
-    removeDups.add(el.id);
-    return !duplicate;
-  });
-
-  console.log("FILTEREDCART", filteredCart);
-
-  const displayCart = filteredCart.map(item => <CartItem key={item.id} item={item} />)
-
-  const cartIds = cartItems.map((item) => item.id);
-
-  console.log(cartIds)
+  //LOGIC FOR ITERATING AND CREATING AN ARRAY WITH EVERY INSTANCE OF AN ITEM'S QUANTITY TO SEND FOR CREATE ORDER
+  function cartIds(array) {
+    let ids = []
+    for (let i = 0; i < array.length; i++) {
+      if (array[i].quantity > 0) {
+        for (let j = 0; j < array[i].quantity; j++) {
+          ids.push(array[i].id)
+        }
+      } else {
+        ids.push(array[i].id)
+      }
+    }
+    return ids
+  }
+  
+  console.log("HIIII" ,cartIds(cartItems));
 
   function handleClearCart() {
     dispatch(clearCart());
@@ -34,7 +38,7 @@ export default function Cart() {
 
   function handlePlaceOrder() {
     dispatch(
-      createOrder({ customer_id: customer.id, total, item_ids: cartIds })
+      createOrder({ customer_id: customer.id, total, item_ids: cartIds(cartItems) })
     );
     // dispatch(clearCart())
   }
@@ -44,7 +48,7 @@ export default function Cart() {
       <div>
         <button onClick={handleClearCart}>Clear Cart</button>
       </div>
-      <div>{displayCart}</div>
+      <div className="cart-items">{displayCart}</div>
       <div>
         <h2>Total: {total}</h2>
       </div>
