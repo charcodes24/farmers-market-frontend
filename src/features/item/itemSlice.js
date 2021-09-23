@@ -27,7 +27,6 @@ const itemSlice = createSlice({
       state.hasError = false;
     },
       [getItems.fulfilled]: (state, { payload }) => {
-      debugger
       if (payload[0]) {
         state.items = payload;
         state.vendor = payload[0].vendor;
