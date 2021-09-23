@@ -50,6 +50,7 @@ const cartSlice = createSlice({
     },
     clearCart(state) {
       state.quantity = {};
+      state.total = 0;
     },
   },
   extraReducers: {
