@@ -1,20 +1,14 @@
 
-import { incrementQuantity } from "../features/cart/cartSlice";
+import { addItemToCart } from "../features/cart/cartSlice";
 
 import { useDispatch } from "react-redux";
 
 export default function ItemCard({ item, cart, setCart }) {
   const dispatch = useDispatch()
   const { id, name, image_url, price } = item
-  
+
   function addToCart(item) {
-    const existingItem = cart.find(item => item.id === id)
-    if (existingItem) {
-      dispatch(incrementQuantity(item))
-    } else {
-      setCart((mostUpdatedCart) => [...mostUpdatedCart, item]);
-      dispatch(incrementQuantity(item))
-    }
+    dispatch(addItemToCart(item))
   }
 
     

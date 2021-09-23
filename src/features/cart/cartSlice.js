@@ -3,7 +3,6 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 export const createOrder = createAsyncThunk(
   "cart/createOrder",
   async ({customer_id, total, item_ids}) => {
-    debugger
     const response = await fetch("/order", {
     method: "POST",
     headers: {
@@ -17,7 +16,6 @@ export const createOrder = createAsyncThunk(
     })
   })
     const data = await response.json()
-    debugger
     return data 
   }
 )
@@ -25,33 +23,38 @@ export const createOrder = createAsyncThunk(
 const cartSlice = createSlice({
   name: "cart",
   initialState: {
-    quantity: {},
-    total: 0,
-    orders: [],
-    isLoading: false,
-    hasError: false
+    cartItems: [],
+    total: 0
   },
   reducers: {
-    incrementQuantity(state, { payload }) {
-      if (payload.name in state.quantity) {
-        state.quantity[payload.name].quantity += 1;
-        state.total = state.total + payload.price;
-      } else {
-        state.quantity[payload.name] = {
-          quantity: 1,
-          price: payload.price,
-        };
-        state.total = state.total + payload.price;
-      }
+    // addItemToCart(state, { payload }) {
+    //   const existingItem = state.cartItems.find(item => item.id === payload.id)
+    //   if (!existingItem) {
+    //     state.cartItems.push({ id: payload.id, name: payload.name, price: payload.price, quantity: 1 })
+    //     state.total += payload.price
+    //   } else {
+    //     existingItem.quantity++
+    //     state.total += payload.price
+    //   }
+    // },
+    // decreaseQuantity({ payload }) {
+    //   payload.quantity -= 1
+    // },
+    addItemToCart(state, { payload }) {
+      state.cartItems.push(payload)
+      state.total += payload.price 
     },
-    decrementQuantity(state, { payload }) {
-      state.quantity[payload.name].quantity -= 1;
-      state.total = state.total - payload.price
+    removeItemFromCart(state, { payload }) {
+      const updatedCart = state.cartItems.filter(
+        (item) => item.id !== payload.id
+      );
+      state.cartItems = updatedCart;
+      state.total -= (payload.price * payload.quantity) 
     },
     clearCart(state) {
-      state.quantity = {};
-      state.total = 0;
-    },
+      state.cartItems = []
+      state.total = 0
+    }
   },
   extraReducers: {
     [createOrder.pending]: (state) => {
@@ -71,5 +74,7 @@ const cartSlice = createSlice({
   },
 });
 
-export const { incrementQuantity, decrementQuantity, clearCart, getTotal } = cartSlice.actions
+export const { addItemToCart, decreaseQuantity, removeItemFromCart, clearCart } = cartSlice.actions
 export default cartSlice.reducer
+
+

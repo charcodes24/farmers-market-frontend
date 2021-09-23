@@ -14,29 +14,24 @@ import CustomerHomePage from './components/CustomerHomePage';
 import Cart from './components/Cart';
 import Loading from "./components/Loading";
 
-const cartFromLocalStorage = JSON.parse(localStorage.getItem('cart') || '[]')
 
 function App() {
   const dispatch = useDispatch()
   const customerLoggedIn = useSelector(state => state.login.customerLoggedIn)
   const vendorLoggedIn = useSelector((state) => state.login.vendorLoggedIn)
-  const [cart, setCart] = useState(cartFromLocalStorage)
 
-  console.log("CART IN APP", cart)
-  
   useEffect(() => {
-    localStorage.setItem("cart", JSON.stringify(cart));
     fetch("/loggedin").then((res) => {
       if (res.ok) {
         res.json().then((user) => dispatch(logIn(user)))
       }
     });
-  }, [cart, dispatch]);
+  }, [dispatch]);
 
   return (
     <div className="app">
       <Loading />
-      <NavBar setCart={setCart}/>
+      <NavBar/>
       <Switch>
         <Route path="/login">
           {customerLoggedIn || vendorLoggedIn ? <Redirect to="/" /> : <Login />}
@@ -48,10 +43,10 @@ function App() {
           <VendorSignup />
         </Route>
         <Route path="/vendors/:id">
-          <VendorPage cart={cart} setCart={setCart} />
+          <VendorPage />
         </Route>
         <Route path="/cart">
-          <Cart cart={cart} setCart={setCart} />
+          <Cart />
         </Route>
         <Route path="/mypage">
           <VendorHomePage />
