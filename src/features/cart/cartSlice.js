@@ -14,7 +14,7 @@ export const createOrder = createAsyncThunk(
       subtotal: total,
       item_ids: item_ids
     })
-  })
+    })
     const data = await response.json()
     return data 
   }
@@ -24,7 +24,10 @@ const cartSlice = createSlice({
   name: "cart",
   initialState: {
     cartItems: [],
-    total: 0
+    total: 0,
+    orders: [],
+    isLoading: false,
+    hasError: false
   },
   reducers: {
     addItemToCart(state, { payload }) {
@@ -54,6 +57,9 @@ const cartSlice = createSlice({
     clearCart(state) {
       state.cartItems = []
       state.total = 0
+    },
+    clearOrders(state) {
+      state.orders = []
     }
   },
   extraReducers: {
@@ -63,7 +69,7 @@ const cartSlice = createSlice({
     },
     [createOrder.fulfilled]: (state, { payload }) => {
       debugger
-      state.orders = state.orders + payload
+      state.orders.push(payload)
       state.isLoading = false;
       state.hasError = false
     },
@@ -74,7 +80,7 @@ const cartSlice = createSlice({
   },
 });
 
-export const { addItemToCart, decreaseQuantity, removeItemFromCart, clearCart } = cartSlice.actions
+export const { addItemToCart, decreaseQuantity, removeItemFromCart, clearCart, clearOrders } = cartSlice.actions
 export default cartSlice.reducer
 
 

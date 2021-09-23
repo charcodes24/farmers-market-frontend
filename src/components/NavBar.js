@@ -2,7 +2,7 @@ import { NavLink, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import { userLogout } from "../features/login/loginSlice";
-import { clearCart } from "../features/cart/cartSlice";
+import { clearCart, clearOrders } from "../features/cart/cartSlice";
 
 export default function CustomerNavBar({ setCart }) {
     const customerLoggedIn = useSelector(state => state.login.customerLoggedIn)
@@ -14,6 +14,7 @@ export default function CustomerNavBar({ setCart }) {
       e.preventDefault()
       dispatch(userLogout())
       dispatch(clearCart())
+      dispatch(clearOrders())
       history.push('/')
     }
 

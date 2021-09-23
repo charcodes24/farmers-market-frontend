@@ -68,7 +68,7 @@ const itemSlice = createSlice({
         state.errors = payload.errors;
         state.hasError = true;
       } else {
-        state.items = state.items + payload;
+        state.items.push(payload)
         state.isLoading = false;
         state.hasError = false;
       }
