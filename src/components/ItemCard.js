@@ -1,10 +1,11 @@
 
 import { addItemToCart } from "../features/cart/cartSlice";
 
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
-export default function ItemCard({ item, cart, setCart }) {
+export default function ItemCard({ item }) {
   const dispatch = useDispatch()
+  const vendorLoggedIn = useSelector(state => state.login.vendorLoggedIn)
   const { id, name, image_url, price } = item
 
   function addToCart(item) {
@@ -21,8 +22,7 @@ export default function ItemCard({ item, cart, setCart }) {
         <div>
           <h3>{name}</h3>
           <h4>${price}</h4>
-          {/* {vendorLoggedIn ? <button>Update Item</button> : <button onClick={addToCart}>Add</button>} */}
-          <button onClick={() => addToCart(item)}>Add</button>
+          {!vendorLoggedIn ? <button onClick={() => addToCart(item)}>Add</button> : null}
         </div>
       </div>
     );
