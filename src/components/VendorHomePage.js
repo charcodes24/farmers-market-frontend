@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { getItems } from "../features/item/itemSlice"
 import ItemCard from "./ItemCard"
 import AddItem from "./AddItem"
+import Loading from "./Loading"
 
 export default function VendorHomePage() {
     //REACT STATE
@@ -13,26 +14,23 @@ export default function VendorHomePage() {
     const dispatch = useDispatch()
     const vendor = useSelector(state => state.login.vendor)
     const items = useSelector(state => state.item.items)
-    const itemLoading = useSelector(state => state.item.isLoading)
+    const loading = useSelector(state => state.item.isLoading)
 
 
     useEffect(() => {
         dispatch(getItems(`${vendor.id}`))
     }, [dispatch]);
 
-    const displayItems = items.map(item => {
-        return (
-            <ItemCard
-                key={item.id}
-                item={item}
-            />
-        )
-    })
-
     function handleToggleForm() {
         setToggleForm(!toggleForm)
     }
-    
+  
+  if (loading) {
+    return <Loading />;
+  } else {
+    const displayItems = items.map((item) => {
+      return <ItemCard key={item.id} item={item} />;
+    });
     return (
       <div>
         <div>
@@ -45,4 +43,6 @@ export default function VendorHomePage() {
         <div className="item">{displayItems}</div>
       </div>
     );
+  }
+
 }

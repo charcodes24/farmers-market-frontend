@@ -14,7 +14,7 @@ export const addItem = createAsyncThunk("item/addItem", async (form) => {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Accept: "application/json",
+      "Accept": "application/json",
     },
     body: JSON.stringify({
         name: form.name,
@@ -26,6 +26,24 @@ export const addItem = createAsyncThunk("item/addItem", async (form) => {
   const data = await response.json();
   return data;
 });
+
+export const updateItem = createAsyncThunk("item/updateItem", async ({id, form}) => {
+  const response = await fetch(`/items/${id}`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      "Accept": "application/json"
+    },
+    body: JSON.stringify({
+      name: form.name,
+      image_url: form.image_url, 
+      price: form.price, 
+      vendor_id: form.vendor_id
+    })
+  })
+  const data = await response.json()
+  return data
+})
 
 const itemSlice = createSlice({
   name: "item",
@@ -68,12 +86,30 @@ const itemSlice = createSlice({
         state.errors = payload.errors;
         state.hasError = true;
       } else {
-        state.items.push(payload)
+        state.items.push(payload);
         state.isLoading = false;
         state.hasError = false;
       }
     },
     [addItem.rejected]: (state) => {
+      state.isLoading = false;
+      state.hasError = true;
+    },
+    [updateItem.pending]: (state) => {
+      state.isLoading = true;
+      state.hasError = false;
+    },
+    [updateItem.fulfilled]: (state, { payload }) => {
+      if (payload.errors) {
+        state.errors = payload.errors;
+        state.hasError = true;
+      } else {
+        state.items = payload
+        state.isLoading = false;
+        state.hasError = false;
+      }
+    },
+    [updateItem.rejected]: (state) => {
       state.isLoading = false;
       state.hasError = true;
     },

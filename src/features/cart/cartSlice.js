@@ -68,7 +68,6 @@ const cartSlice = createSlice({
       state.hasError = false;
     },
     [createOrder.fulfilled]: (state, { payload }) => {
-      debugger
       state.orders.push(payload)
       state.isLoading = false;
       state.hasError = false

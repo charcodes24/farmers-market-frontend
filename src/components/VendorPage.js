@@ -33,18 +33,4 @@ export default function VendorPage({ cart, setCart, quantity, setQuantity }) {
     );
     
   }
-
-  // return (
-  //   <div>
-  //     {loading ? (
-  //       <Loading />
-  //     ) : (
-  //         <div>
-  //           <h1>{vendor.name}</h1>
-  //           <p>{vendor.description}</p>
-  //           {/* {displayItems} */}
-  //         </div>
-  //     )}
-  //   </div>
-  // );
 }
