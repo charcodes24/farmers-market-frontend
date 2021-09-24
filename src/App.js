@@ -13,6 +13,7 @@ import VendorHomePage from './components/VendorHomePage';
 import CustomerHomePage from './components/CustomerHomePage';
 import Cart from './components/Cart';
 import Loading from "./components/Loading";
+import MyOrders from "./components/MyOrders";
 
 
 function App() {
@@ -31,7 +32,7 @@ function App() {
   return (
     <div className="app">
       <Loading />
-      <NavBar/>
+      <NavBar />
       <Switch>
         <Route path="/login">
           {customerLoggedIn || vendorLoggedIn ? <Redirect to="/" /> : <Login />}
@@ -50,6 +51,9 @@ function App() {
         </Route>
         <Route path="/mypage">
           <VendorHomePage />
+        </Route>
+        <Route path="/myorders">
+          <MyOrders />
         </Route>
         <Route path="/">
           <CustomerHomePage />

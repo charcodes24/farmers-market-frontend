@@ -1,7 +1,10 @@
+import { useState } from "react";
 
 import { addItemToCart } from "../features/cart/cartSlice";
 
 import { useDispatch, useSelector } from "react-redux";
+
+import ItemForm from "./ItemForm";
 
 export default function ItemCard({ item }) {
   const dispatch = useDispatch()
@@ -9,8 +12,15 @@ export default function ItemCard({ item }) {
   const vendor = useSelector(state => state.login.vendor)
   const { id, name, image_url, price } = item
 
+  //STATE
+  const [toggleForm, setToggleForm] = useState(false)
+
   function addToCart(item) {
     dispatch(addItemToCart(item))
+  }
+
+  function handleToggleForm() {
+    setToggleForm(!toggleForm)
   }
 
     
@@ -24,7 +34,8 @@ export default function ItemCard({ item }) {
           <h3>{name}</h3>
           <h4>${price}</h4>
           {!vendorLoggedIn ? <button onClick={() => addToCart(item)}>Add</button> : null}
-          {(item.vendor_id === vendor.id) ? <button>Update Item</button> : null}
+          {(item.vendor_id === vendor.id) ? <button onClick={() => handleToggleForm()}>Update Item</button> : null}
+          {toggleForm ? <ItemForm item={item}/> : null}
         </div>
       </div>
     );
