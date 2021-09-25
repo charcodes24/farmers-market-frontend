@@ -14,7 +14,7 @@ import CustomerHomePage from './components/CustomerHomePage';
 import Cart from './components/Cart';
 import Loading from "./components/Loading";
 import MyOrders from "./components/MyOrders";
-import OrderPage from "./components/OrderPage";
+import OrderPage from "./components/OrderDetails";
 
 
 function App() {

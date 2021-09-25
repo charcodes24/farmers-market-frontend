@@ -2,7 +2,7 @@ import { useEffect } from "react"
 import { useParams } from "react-router"
 import { useSelector, useDispatch } from "react-redux"
 
-export default function OrderPage() {
+export default function OrderDetails() {
     const dispatch = useDispatch()
     const orders = useSelector(state => state.cart.orders)
     const { id } = useParams()
@@ -30,11 +30,12 @@ export default function OrderPage() {
 
     
     return (
-        <div>
-            <h1>This order was placed on {thisOrder.date_placed}</h1>
-            <h3>Order Total: ${thisOrder.subtotal}</h3>
-            {displayItems}
+      <div>
+        <h1>This order was placed on {thisOrder.date_placed}</h1>
+        <h3>Order Number: {thisOrder.id}</h3>
+        {displayItems}
+        <h3>Order Total: ${thisOrder.subtotal}</h3>
             <button>Order Again</button>
-        </div>
-    )
+      </div>
+    );
 }

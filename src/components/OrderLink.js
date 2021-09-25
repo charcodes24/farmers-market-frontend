@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 
-export default function OrderCard({ order }) {
+export default function OrderLink({ order }) {
     const { id, subtotal, date_placed } = order
     
     return (
