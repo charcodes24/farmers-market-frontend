@@ -6,14 +6,15 @@ import { userLogin } from "../features/login/loginSlice";
 import Loading from "./Loading";
 
 export default function Login() {
-    const isLoading = useSelector(state => state.login.isLoading)
-    const hasError = useSelector(state => state.login.hasError)
-    const errors = useSelector(state => state.login.errors)
-    const dispatch = useDispatch()
-    const [form, setForm] = useState({
-        username: "",
-        password: ""
-    })
+  const cartItems = useSelector(state => state.cart.cartItems)
+  const isLoading = useSelector(state => state.login.isLoading)
+  const hasError = useSelector(state => state.login.hasError)
+  const errors = useSelector(state => state.login.errors)
+  const dispatch = useDispatch()
+  const [form, setForm] = useState({
+      username: "",
+      password: ""
+  })
 
 
     function handleInput(e) {
@@ -49,7 +50,10 @@ export default function Login() {
               placeholder="password"
             />
             <button>Log-In!</button>
-          </form>
+            </form>
+            {(cartItems.length > 0) ? (
+              <h3>Please sign in to place an order!</h3>
+          ) : null}
           {hasError ? (
             <div>
               {errors.map((error) => (

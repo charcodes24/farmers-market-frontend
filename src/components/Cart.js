@@ -1,3 +1,4 @@
+import { useHistory } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 
 import { clearCart, createOrder } from "../features/cart/cartSlice";
@@ -6,6 +7,7 @@ import CartItem from "./CartItem"
 
 export default function Cart() {
   const dispatch = useDispatch();
+  const history = useHistory();
   const cartItems = useSelector((state) => state.cart.cartItems);
   const customer = useSelector((state) => state.login.customer);
   const total = useSelector((state) => state.cart.total);
@@ -47,7 +49,7 @@ export default function Cart() {
       );
       dispatch(clearCart());
     } else {
-      alert('Please login first.')
+      history.push('/login')
     }
   }
 
