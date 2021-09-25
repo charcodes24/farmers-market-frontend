@@ -40,7 +40,7 @@ export default function Cart() {
     dispatch(
       createOrder({ customer_id: customer.id, total, item_ids: cartIds(cartItems) })
     );
-    // dispatch(clearCart())
+    dispatch(clearCart())
   }
 
   return (

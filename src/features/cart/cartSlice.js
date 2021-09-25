@@ -20,6 +20,15 @@ export const createOrder = createAsyncThunk(
   }
 )
 
+export const getOrders = createAsyncThunk(
+  "cart/getOrders",
+  async (id) => {
+    const response = await fetch(`/orders/${id}`)
+    const data = await response.json()
+    return data 
+  }
+)
+
 const cartSlice = createSlice({
   name: "cart",
   initialState: {
@@ -27,40 +36,43 @@ const cartSlice = createSlice({
     total: 0,
     orders: [],
     isLoading: false,
-    hasError: false
+    hasError: false,
   },
   reducers: {
     addItemToCart(state, { payload }) {
-      const existingItem = state.cartItems.find(item => item.id === payload.id)
+      const existingItem = state.cartItems.find(
+        (item) => item.id === payload.id
+      );
       if (!existingItem) {
-        state.cartItems.push({ id: payload.id, name: payload.name, price: payload.price, quantity: 1 })
-        state.total += payload.price
+        state.cartItems.push({
+          id: payload.id,
+          name: payload.name,
+          price: payload.price,
+          quantity: 1,
+        });
+        state.total += payload.price;
       } else {
-        existingItem.quantity++
-        state.total += payload.price
+        existingItem.quantity++;
+        state.total += payload.price;
       }
     },
     // decreaseQuantity({ payload }) {
     //   payload.quantity -= 1
-    // },
-    // addItemToCart(state, { payload }) {
-    //   state.cartItems.push(payload)
-    //   state.total += payload.price 
     // },
     removeItemFromCart(state, { payload }) {
       const updatedCart = state.cartItems.filter(
         (item) => item.id !== payload.id
       );
       state.cartItems = updatedCart;
-      state.total -= (payload.price * payload.quantity) 
+      state.total -= payload.price * payload.quantity;
     },
     clearCart(state) {
-      state.cartItems = []
-      state.total = 0
+      state.cartItems = [];
+      state.total = 0;
     },
     clearOrders(state) {
-      state.orders = []
-    }
+      state.orders = [];
+    },
   },
   extraReducers: {
     [createOrder.pending]: (state) => {
@@ -68,11 +80,24 @@ const cartSlice = createSlice({
       state.hasError = false;
     },
     [createOrder.fulfilled]: (state, { payload }) => {
-      state.orders.push(payload)
+      state.orders.push(payload);
       state.isLoading = false;
-      state.hasError = false
+      state.hasError = false;
     },
     [createOrder.rejected]: (state) => {
+      state.isLoading = false;
+      state.hasError = true;
+    },
+    [getOrders.pending]: (state) => {
+      state.isLoading = true;
+      state.hasError = false;
+    },
+    [getOrders.fulfilled]: (state, { payload }) => {
+      state.orders = payload
+      state.isLoading = false;
+      state.hasError = false;
+    },
+    [getOrders.rejected]: (state) => {
       state.isLoading = false;
       state.hasError = true;
     },

@@ -104,7 +104,14 @@ const itemSlice = createSlice({
         state.errors = payload.errors;
         state.hasError = true;
       } else {
-        state.items = payload
+        const updatedItems = state.items.map(item => {
+          if (item.id === payload.id) {
+            return payload
+          } else {
+            return item 
+          }
+        })
+        state.items = updatedItems
         state.isLoading = false;
         state.hasError = false;
       }
