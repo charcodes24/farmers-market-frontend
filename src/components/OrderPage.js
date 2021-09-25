@@ -7,10 +7,11 @@ export default function OrderPage() {
     const orders = useSelector(state => state.cart.orders)
     const { id } = useParams()
 
-    const thisOrder = orders.filter(order => order.id === id)
+    const thisOrder = orders.filter(order => order.id === parseInt(id))
+    
     console.log("THIS ORDER", thisOrder)
-    console.log(id)
-    console.log(orders)
+    console.log("ORDER PAGE ID", id)
+    console.log("ORDERS", orders)
     
     return <h1>Order Page</h1>
 }
