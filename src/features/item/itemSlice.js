@@ -32,15 +32,15 @@ export const updateItem = createAsyncThunk("item/updateItem", async ({id, form})
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
-      "Accept": "application/json"
+      Accept: "application/json",
     },
     body: JSON.stringify({
       name: form.name,
-      image_url: form.image_url, 
-      price: form.price, 
-      vendor_id: form.vendor_id
-    })
-  })
+      image_url: form.image_url,
+      price: parseInt(form.price),
+      vendor_id: form.vendor_id,
+    }),
+  });
   const data = await response.json()
   return data
 })
