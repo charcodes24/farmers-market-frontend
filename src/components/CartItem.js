@@ -6,11 +6,6 @@ export default function CartItem({ item }) {
   const dispatch = useDispatch()
   const { id, name, price } = item
 
-
-  function removeItem() {
-    dispatch(removeItemFromCart(item))
-  }
-
   function handleDecreaseQuantity() {
     dispatch(decreaseQuantity(id))
   }
@@ -25,7 +20,6 @@ export default function CartItem({ item }) {
         </div>
         <div>
           <button onClick={handleDecreaseQuantity}>{item.quantity === 1 ? "Remove Item" : "Decrease Quantity"}</button>
-          {/* <button onClick={handleDecreaseQuantity}>Remove Item</button> */}
         </div>
       </div>
     );

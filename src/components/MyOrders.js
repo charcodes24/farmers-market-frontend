@@ -14,25 +14,15 @@ export default function MyOrders() {
   
   useEffect(() => {
     dispatch(getOrders(customer.id))
-  }, []);
+  }, [dispatch, customer.id]);
 
   const displayOrders = orders.map(order => <OrderItem key={order.id} order={order}/>)
-
-    // const displayOrders = orders.map(order => order.items.map(item => {
-    //     return (
-    //       <div className="order-items">
-    //         <img className="image-order" src={item.image_url} />
-    //         <h3>{item.name}</h3>
-    //         <p>{item.price}</p>
-    //       </div>
-    //     );
-    // }))
     
     return (
       <div className="orders-container">
         <div>
           <h1>My Orders</h1>
-          {(orders.length < 1) ? <h3>You haven't placed an order yet.</h3> : null}
+          {(orders.length < 1) ? <h3>You haven't placed any orders yet.</h3> : null}
         </div>
             <div>
                 {displayOrders}

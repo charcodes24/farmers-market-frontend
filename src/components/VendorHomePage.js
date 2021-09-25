@@ -19,7 +19,7 @@ export default function VendorHomePage() {
 
     useEffect(() => {
         dispatch(getItems(`${vendor.id}`))
-    }, [dispatch]);
+    }, [dispatch, vendor.id]);
 
     function handleToggleForm() {
         setToggleForm(!toggleForm)

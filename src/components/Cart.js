@@ -37,26 +37,32 @@ export default function Cart() {
   }
 
   function handlePlaceOrder() {
-    dispatch(
-      createOrder({ customer_id: customer.id, total, item_ids: cartIds(cartItems) })
-    );
-    dispatch(clearCart())
+    if (customer.name) {
+      dispatch(
+        createOrder({
+          customer_id: customer.id,
+          total,
+          item_ids: cartIds(cartItems),
+        })
+      );
+      dispatch(clearCart());
+    } else {
+      alert('Please login first.')
+    }
   }
 
 
   return (
     <div>
-      {cartItems.length > 0 ? (
+      {(cartItems.length > 0) ? (
         <div>
-          <div>
-            <button onClick={handleClearCart}>Clear Cart</button>
-          </div>
           <div className="cart-items">{displayCart}</div>
           <div>
             <h2>Total: {total}</h2>
           </div>
           <div>
             <button onClick={handlePlaceOrder}>Place Order</button>
+            <button onClick={handleClearCart}>Clear Cart</button>
           </div>
         </div>
       ) : (

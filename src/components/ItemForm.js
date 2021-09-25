@@ -2,7 +2,7 @@ import { useState } from "react"
 
 import { useSelector, useDispatch } from "react-redux"
 
-import { updateItem, getItems } from "../features/item/itemSlice"
+import { updateItem } from "../features/item/itemSlice"
 
 export default function ItemForm({ item }) {
     const dispatch = useDispatch()

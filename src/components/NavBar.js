@@ -7,7 +7,8 @@ import { clearCart, clearOrders } from "../features/cart/cartSlice";
 export default function CustomerNavBar() {
   //REDUX STORE
     const customerLoggedIn = useSelector(state => state.login.customerLoggedIn)
-    const vendorLoggedIn = useSelector(state => state.login.vendorLoggedIn)
+  const vendorLoggedIn = useSelector(state => state.login.vendorLoggedIn)
+  const cartItems = useSelector(state => state.cart.cartItems)
     const dispatch = useDispatch()
     const history = useHistory()
 
@@ -28,7 +29,7 @@ export default function CustomerNavBar() {
         {customerLoggedIn || vendorLoggedIn ? null : (
           <NavLink to="/signup_customer">Signup</NavLink>
         )}
-        {customerLoggedIn ? <NavLink to="/cart">Cart</NavLink> : null}
+        {customerLoggedIn || (cartItems.length > 0) ? <NavLink to="/cart">Cart</NavLink> : null}
         {customerLoggedIn ? <NavLink to="/myorders">My Orders</NavLink> : null}
         {vendorLoggedIn ? <NavLink to="/mypage">My Page</NavLink> : null}
         {customerLoggedIn || vendorLoggedIn ? (

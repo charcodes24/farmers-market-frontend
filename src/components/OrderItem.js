@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 
 export default function OrderItem({ order }) {
-    const { id, subtotal, date_placed, items: {} } = order
+    const { id, subtotal, date_placed } = order
     
     return (
         <div>
