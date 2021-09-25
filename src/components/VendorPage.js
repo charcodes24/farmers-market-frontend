@@ -7,7 +7,7 @@ import { showVendor } from "../features/vendor/vendorSlice";
 import ItemCard from "./ItemCard";
 import Loading from "./Loading";
 
-export default function VendorPage({ cart, setCart, quantity, setQuantity }) {
+export default function VendorPage({ cart, setCart }) {
   const { id } = useParams();
   const dispatch = useDispatch();
   const items = useSelector(state => state.vendor.vendor.items)

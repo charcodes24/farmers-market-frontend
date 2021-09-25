@@ -14,6 +14,7 @@ import CustomerHomePage from './components/CustomerHomePage';
 import Cart from './components/Cart';
 import Loading from "./components/Loading";
 import MyOrders from "./components/MyOrders";
+import OrderPage from "./components/OrderPage";
 
 
 function App() {
@@ -54,6 +55,9 @@ function App() {
         </Route>
         <Route path="/myorders">
           <MyOrders />
+        </Route>
+        <Route path="/orders/:id">
+          <OrderPage />
         </Route>
         <Route path="/">
           <CustomerHomePage />

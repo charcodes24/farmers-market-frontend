@@ -43,18 +43,27 @@ export default function Cart() {
     dispatch(clearCart())
   }
 
+
   return (
     <div>
-      <div>
-        <button onClick={handleClearCart}>Clear Cart</button>
-      </div>
-      <div className="cart-items">{displayCart}</div>
-      <div>
-        <h2>Total: {total}</h2>
-      </div>
-      <div>
-        <button onClick={handlePlaceOrder}>Place Order</button>
-      </div>
+      {cartItems.length > 0 ? (
+        <div>
+          <div>
+            <button onClick={handleClearCart}>Clear Cart</button>
+          </div>
+          <div className="cart-items">{displayCart}</div>
+          <div>
+            <h2>Total: {total}</h2>
+          </div>
+          <div>
+            <button onClick={handlePlaceOrder}>Place Order</button>
+          </div>
+        </div>
+      ) : (
+        <div>
+          <h3>Your cart is empty</h3>
+        </div>
+      )}
     </div>
   );
 }
