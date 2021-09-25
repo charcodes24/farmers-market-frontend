@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux"
 
 import { getOrders } from "../features/cart/cartSlice"
 
-import OrderItem from "./OrderItem"
+import OrderItem from "./OrderCard"
 
 export default function MyOrders() {
   const dispatch = useDispatch()

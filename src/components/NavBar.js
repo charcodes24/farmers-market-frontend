@@ -23,13 +23,12 @@ export default function CustomerNavBar() {
     return (
       <div>
         <NavLink to="/">Home</NavLink>
+        {customerLoggedIn || cartItems.length > 0 ? (
+          <NavLink to="/cart">Cart</NavLink>
+        ) : null}
         {customerLoggedIn || vendorLoggedIn ? null : (
           <NavLink to="/login">Login</NavLink>
         )}
-        {customerLoggedIn || vendorLoggedIn ? null : (
-          <NavLink to="/signup_customer">Signup</NavLink>
-        )}
-        {customerLoggedIn || (cartItems.length > 0) ? <NavLink to="/cart">Cart</NavLink> : null}
         {customerLoggedIn ? <NavLink to="/myorders">My Orders</NavLink> : null}
         {vendorLoggedIn ? <NavLink to="/mypage">My Page</NavLink> : null}
         {customerLoggedIn || vendorLoggedIn ? (

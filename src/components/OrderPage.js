@@ -11,20 +11,29 @@ export default function OrderPage() {
     console.log("THIS ORDER", thisOrder)
     console.log("ITEMS", thisOrder.items)
 
-    const removeDups = new Set();
-    const filteredItems = thisOrder.items.filter((item) => {
-        const dup = removeDups.has(item.id)
-        removeDups.add(item.id)
-        return !dup
-    })
+    const filteredItems = thisOrder.items.reduce((sums, item) => {
+        sums[item.name] = (sums[item.name] || 0) + 1;
+        return sums
+    }, {})
+    console.log(filteredItems)
 
-    console.log("REMOVE DUPS", removeDups)
+    const itemsArray = Object.entries(filteredItems)
+    const displayItems = itemsArray.map(item => {
+        return (
+          <div>
+                <p>Item: {item[0]}</p>
+                <p>Quantity: {item[1]}</p>
+          </div>
+        );
+    })
+    console.log("DISPLAY ITEMS", displayItems);
+
     
     return (
         <div>
             <h1>This order was placed on {thisOrder.date_placed}</h1>
             <h3>Order Total: ${thisOrder.subtotal}</h3>
-            <h3>Order Items: </h3>
+            {displayItems}
             <button>Order Again</button>
         </div>
     )

@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 import { userLogin } from "../features/login/loginSlice";
 
@@ -50,9 +51,13 @@ export default function Login() {
               placeholder="password"
             />
             <button>Log-In!</button>
-            </form>
-            {(cartItems.length > 0) ? (
-              <h3>Please sign in to place an order!</h3>
+          </form>
+          <p>
+            Don't have an account?{" "}
+            <Link to="/signup_customer">Sign-up here!</Link>
+          </p>
+          {cartItems.length > 0 ? (
+            <h3>Please sign in to place an order!</h3>
           ) : null}
           {hasError ? (
             <div>
