@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 
-import { removeItemFromCart } from "../features/cart/cartSlice";
+import { removeItemFromCart, decreaseQuantity } from "../features/cart/cartSlice";
 
 export default function CartItem({ item }) {
   const dispatch = useDispatch()
@@ -9,6 +9,10 @@ export default function CartItem({ item }) {
 
   function removeItem() {
     dispatch(removeItemFromCart(item))
+  }
+
+  function handleDecreaseQuantity() {
+    dispatch(decreaseQuantity(id))
   }
 
 
@@ -20,8 +24,8 @@ export default function CartItem({ item }) {
           <h3>Quantity: {item.quantity}</h3>
         </div>
         <div>
-          {/* <button onClick={removeItem}>{item.quantity === 1 ? "Remove Item" : "Decrease Quantity"}</button> */}
-          <button onClick={removeItem}>Remove Item</button>
+          <button onClick={handleDecreaseQuantity}>{item.quantity === 1 ? "Remove Item" : "Decrease Quantity"}</button>
+          {/* <button onClick={handleDecreaseQuantity}>Remove Item</button> */}
         </div>
       </div>
     );

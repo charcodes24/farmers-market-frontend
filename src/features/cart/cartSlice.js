@@ -57,15 +57,18 @@ const cartSlice = createSlice({
         state.total += payload.price;
       }
     },
-    // decreaseQuantity({ payload }) {
-    //   payload.quantity -= 1
-    // },
-    removeItemFromCart(state, { payload }) {
-      const updatedCart = state.cartItems.filter(
-        (item) => item.id !== payload.id
-      );
-      state.cartItems = updatedCart;
-      state.total -= payload.price * payload.quantity;
+    decreaseQuantity(state, { payload }) {
+      const item = state.cartItems.find(item => item.id === payload)
+      if (item.quantity > 1) {
+        item.quantity -= 1;
+        state.total -= item.price;
+      } else {
+        const updatedCart = state.cartItems.filter(
+          (item) => item.id !== payload
+        );
+        state.cartItems = updatedCart
+        state.total -= item.price
+      }
     },
     clearCart(state) {
       state.cartItems = [];
