@@ -12,15 +12,13 @@ export default function CartItem({ item }) {
 
 
     return (
-      <div>
-        <div>
-          <h1 className="col">{name}</h1>
-          <h2>Price: {price}</h2>
-          <h3>Quantity: {item.quantity}</h3>
+        <div className="col-4 justify-content-center">
+          <h6>{name}</h6>
+          <p>Price: {price}</p>
+          <p>Quantity: {item.quantity}</p>
+          <button className="btn" type="button" onClick={handleDecreaseQuantity}>
+            {item.quantity === 1 ? "Remove Item" : "Decrease Quantity"}
+          </button>
         </div>
-        <div>
-          <button onClick={handleDecreaseQuantity}>{item.quantity === 1 ? "Remove Item" : "Decrease Quantity"}</button>
-        </div>
-      </div>
     );
 }

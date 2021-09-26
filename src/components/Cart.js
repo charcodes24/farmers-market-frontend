@@ -56,19 +56,22 @@ export default function Cart() {
 
   return (
     <div className="container">
-      {(cartItems.length > 0) ? (
+      {cartItems.length > 0 ? (
         <div>
-          <div className="row">{displayCart}</div>
-          <div className="row">
+          <div className="row justify-content-center">
+            <h1>Your Cart:</h1>
+          </div>
+          <div className="row justify-content-center">{displayCart}</div>
+          <div className="row justify-content-center">
             <h2>Total: {total}</h2>
           </div>
-          <div>
-            <button onClick={handlePlaceOrder}>Place Order</button>
-            <button onClick={handleClearCart}>Clear Cart</button>
+          <div className="row justify-content-center">
+            <button className="btn" type="button" onClick={handlePlaceOrder}>Place Order</button>
+            <button className="btn" type="button" onClick={handleClearCart}>Clear Cart</button>
           </div>
         </div>
       ) : (
-        <div className="empty">
+        <div className="row justify-content-center">
           <h3>Your cart is empty.</h3>
         </div>
       )}

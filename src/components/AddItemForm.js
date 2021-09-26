@@ -51,7 +51,7 @@ export default function AddItmForm() {
                 name="price" 
                 placeholder="price" 
                 />
-          <button type="submit">OK</button>
+          <button type="submit" className="btn">OK</button>
         </form>
       </div>
     );

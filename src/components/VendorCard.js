@@ -5,10 +5,12 @@ export default function VendorCard({ vendor }) {
 
 
     return (
-        <div>
-            <Link to={`/vendors/${id}`}>
-                <div>{name}</div>
-            </Link>
+      <div className="col-md-3 p-5 justify-content-center">
+        <div className="p-card p-4rounded px-3">
+          <Link to={`/vendors/${id}`}>
+            <p>{name}</p>
+          </Link>
         </div>
-    )
+      </div>
+    );
 }

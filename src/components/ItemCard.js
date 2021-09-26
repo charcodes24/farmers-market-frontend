@@ -12,33 +12,37 @@ export default function ItemCard({ item }) {
   const vendor = useSelector(state => state.login.vendor)
   const { id, name, image_url, price } = item
 
-  //STATE
-  const [toggleForm, setToggleForm] = useState(false)
-
   function addToCart(item) {
     dispatch(addItemToCart(item))
-  }
-
-  function handleToggleForm() {
-    setToggleForm(!toggleForm)
   }
 
     
 
     return (
-      <div className="item-card">
-        <img className="image-card" src={image_url} alt={name} />
-        <div className="item-text">
+      <div className="p-card p-2 rounded px-3">
+        <img src={image_url} alt={name} />
+        <div >
           <h3>{name}</h3>
           <h4>${price}</h4>
           {!vendorLoggedIn ? (
             <button onClick={() => addToCart(item)}>Add</button>
           ) : null}
           {item.vendor_id === vendor.id ? (
-            <button onClick={() => handleToggleForm()}>Update Item</button>
+            <button
+              className="btn"
+              type="button"
+              data-toggle="collapse"
+              data-target={"#update" + id}
+              aria-expanded="false"
+              aria-controls="updateItem"
+            >
+              Update Item
+            </button>
           ) : null}
         </div>
-        {toggleForm ? <ItemForm item={item} /> : null}
+        <div class="collapse" id={"update" + id}>
+          <ItemForm item={item} />
+        </div>
       </div>
     );
 }

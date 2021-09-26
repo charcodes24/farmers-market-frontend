@@ -21,18 +21,34 @@ export default function CustomerNavBar() {
     }
 
     return (
-      <div className="row">
-        <NavLink className="col-auto" to="/">Home</NavLink>
+      <div className="row sticky-top bg-white pt-3">
+        <NavLink className="col-auto" to="/">
+          Home
+        </NavLink>
         {customerLoggedIn || cartItems.length > 0 ? (
-          <NavLink className="col-auto" to="/cart">Cart</NavLink>
+          <NavLink className="col-auto" to="/cart">
+            Cart
+          </NavLink>
         ) : null}
         {customerLoggedIn || vendorLoggedIn ? null : (
-          <NavLink className="col-auto" to="/login">Login</NavLink>
+          <NavLink className="col-auto" to="/login">
+            Login
+          </NavLink>
         )}
-        {customerLoggedIn ? <NavLink className="col" to="/myorders">My Orders</NavLink> : null}
-        {vendorLoggedIn ? <NavLink className="col" to="/mypage">My Page</NavLink> : null}
+        {customerLoggedIn ? (
+          <NavLink className="col-auto" to="/myorders">
+            My Orders
+          </NavLink>
+        ) : null}
+        {vendorLoggedIn ? (
+          <NavLink className="col" to="/mypage">
+            My Page
+          </NavLink>
+        ) : null}
         {customerLoggedIn || vendorLoggedIn ? (
-          <button className="col-auto" onClick={handleLogout}>Sign Out!</button>
+          <button className="btn position-relative float-right" type="button" onClick={handleLogout}>
+            Sign Out!
+            </button>
         ) : null}
       </div>
     );

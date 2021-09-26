@@ -19,12 +19,12 @@ export default function MyOrders() {
   const displayOrders = orders.map(order => <OrderItem key={order.id} order={order}/>)
     
     return (
-      <div className="orders-container">
-        <div>
+      <div className="container">
+        <div className="row">
           <h1>My Orders</h1>
           {(orders.length < 1) ? <h3>You haven't placed any orders yet.</h3> : null}
         </div>
-            <div>
+            <div className="row">
                 {displayOrders}
             </div>
       </div>

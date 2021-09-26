@@ -12,13 +12,7 @@ export default function CustomerHomePage() {
     const vendor = useSelector(state => state.login.vendor)
     const vendors = useSelector(state => state.vendor.vendorList)
 
-    const displayVendors = vendors.map((vendor) => {
-        return (
-          <div className="col">
-            <VendorCard key={vendor.id} vendor={vendor} />
-          </div>
-        );
-    })
+    const displayVendors = vendors.map((vendor) => <VendorCard key={vendor.id} vendor={vendor} />)
 
     useEffect(() => {
         dispatch(getVendors())
@@ -26,11 +20,11 @@ export default function CustomerHomePage() {
 
     return (
       <div>
+        <About />
         <div>
-          <About />
-        </div>
-        <div className="row">
-          <div>{displayVendors}</div>
+          <div className="row mt-1">
+            {displayVendors}
+          </div>
         </div>
       </div>
     );

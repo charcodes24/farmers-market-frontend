@@ -37,7 +37,7 @@ export default function ItemForm({ item }) {
                 <input onChange={handleInput} type="text" name="name" value={form.name} placeholder={name}/>
                 <input onChange={handleInput} type="text" name="image_url" value={form.image_url} placeholder={image_url}/>
                 <input onChange={handleInput} type="number" name="price" value={form.price} placeholder={price} />
-                <button type="submit">Ok</button>
+                <button className="btn" type="submit">Ok</button>
             </form>
       </div>
     );

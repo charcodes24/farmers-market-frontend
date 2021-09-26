@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 
 import { getItems } from "../features/item/itemSlice"
@@ -7,8 +7,6 @@ import AddItemForm from "./AddItemForm"
 import Loading from "./Loading"
 
 export default function VendorHomePage() {
-    //REACT STATE
-    const [toggleForm, setToggleForm] = useState(false)
 
     //REDUX
     const dispatch = useDispatch()
@@ -20,10 +18,6 @@ export default function VendorHomePage() {
     useEffect(() => {
         dispatch(getItems(`${vendor.id}`))
     }, [dispatch, vendor.id]);
-
-    function handleToggleForm() {
-        setToggleForm(!toggleForm)
-    }
   
   if (loading) {
     return <Loading />;
@@ -35,8 +29,11 @@ export default function VendorHomePage() {
       <div>
         <div className="vendor">
           <h1>{vendor.name}</h1>
-          <button onClick={handleToggleForm}>Add Item</button>
-          {toggleForm ? <AddItemForm /> : null}
+          <button class="btn" type="button" data-toggle="collapse" data-target="#addItem" aria-expanded="false" aria-controls="addItem">Add Item </button>
+
+          <div class="collapse" id="addItem">
+            <AddItemForm />
+          </div>
         </div>
         <div className="item">{displayItems}</div>
       </div>
