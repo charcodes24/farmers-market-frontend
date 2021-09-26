@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 
 import { getVendors } from "../features/vendor/vendorSlice"
 
+import About from "./About"
 import VendorCard from "./VendorCard"
 
 export default function CustomerHomePage() {
@@ -25,11 +26,11 @@ export default function CustomerHomePage() {
     }, [dispatch]);
 
     return (
-      <div>
-            {(customer.name || vendor.name) ? (
-                <div><h1>Hi, {customer.name || vendor.name}!!</h1></div>
-            ) : null}
-        <div className="vendors">{displayVendors}</div>
+        <div>
+            <About />
+            <div className="vendors">
+                {displayVendors}
+            </div>
       </div>
     );
 }
