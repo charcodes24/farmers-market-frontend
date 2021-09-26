@@ -26,17 +26,19 @@ export default function ItemCard({ item }) {
     
 
     return (
-      <div>
-        <div>
-          <img src={image_url} alt={name}/>
-        </div>
-        <div>
+      <div className="item-card">
+        <img className="image-card" src={image_url} alt={name} />
+        <div className="item-text">
           <h3>{name}</h3>
           <h4>${price}</h4>
-          {!vendorLoggedIn ? <button onClick={() => addToCart(item)}>Add</button> : null}
-          {(item.vendor_id === vendor.id) ? <button onClick={() => handleToggleForm()}>Update Item</button> : null}
-          {toggleForm ? <ItemForm item={item}/> : null}
+          {!vendorLoggedIn ? (
+            <button onClick={() => addToCart(item)}>Add</button>
+          ) : null}
+          {item.vendor_id === vendor.id ? (
+            <button onClick={() => handleToggleForm()}>Update Item</button>
+          ) : null}
         </div>
+        {toggleForm ? <ItemForm item={item} /> : null}
       </div>
     );
 }

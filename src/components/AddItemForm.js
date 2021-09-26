@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { addItem } from "../features/item/itemSlice";
 
-export default function AddItem() {
+export default function AddItmForm() {
     const dispatch = useDispatch()
     const vendor = useSelector(state => state.login.vendor)
     //REACT STATE 
@@ -28,8 +28,8 @@ export default function AddItem() {
 
 
     return (
-      <div>
-        <form onSubmit={handleSubmit}>
+      <div className="add-item">
+        <form className="add-itemform" onSubmit={handleSubmit}>
                 <input
                 onChange={handleInput} 
                 type="text" 
@@ -51,7 +51,7 @@ export default function AddItem() {
                 name="price" 
                 placeholder="price" 
                 />
-          <button type="submit">Add Item</button>
+          <button type="submit">OK</button>
         </form>
       </div>
     );

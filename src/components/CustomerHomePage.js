@@ -27,7 +27,7 @@ export default function CustomerHomePage() {
     return (
       <div>
             {(customer.name || vendor.name) ? (
-                <div><h1>Welcome to the Farmer's Market, {customer.name || vendor.name}!!</h1></div>
+                <div><h1>Hi, {customer.name || vendor.name}!!</h1></div>
             ) : null}
         <div className="vendors">{displayVendors}</div>
       </div>

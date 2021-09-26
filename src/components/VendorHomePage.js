@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 
 import { getItems } from "../features/item/itemSlice"
 import ItemCard from "./ItemCard"
-import AddItem from "./AddItem"
+import AddItemForm from "./AddItemForm"
 import Loading from "./Loading"
 
 export default function VendorHomePage() {
@@ -33,12 +33,10 @@ export default function VendorHomePage() {
     });
     return (
       <div>
-        <div>
+        <div className="vendor">
           <h1>{vendor.name}</h1>
-        </div>
-        <div>
           <button onClick={handleToggleForm}>Add Item</button>
-          {toggleForm ? <AddItem /> : null}
+          {toggleForm ? <AddItemForm /> : null}
         </div>
         <div className="item">{displayItems}</div>
       </div>

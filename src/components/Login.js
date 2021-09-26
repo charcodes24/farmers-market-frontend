@@ -7,11 +7,16 @@ import { userLogin } from "../features/login/loginSlice";
 import Loading from "./Loading";
 
 export default function Login() {
+  //DISPATCH ACTIONS FROM REDUX STORE
+  const dispatch = useDispatch();
+
+  //REDUX STORE
   const cartItems = useSelector(state => state.cart.cartItems)
   const isLoading = useSelector(state => state.login.isLoading)
   const hasError = useSelector(state => state.login.hasError)
   const errors = useSelector(state => state.login.errors)
-  const dispatch = useDispatch()
+
+  //LOCAL STATEFUL VARIABLE
   const [form, setForm] = useState({
       username: "",
       password: ""
@@ -34,8 +39,8 @@ export default function Login() {
       return isLoading ? (
         <Loading />
       ) : (
-        <div>
-          <form onSubmit={handleSubmit}>
+        <div className="login">
+          <form className="login-form" onSubmit={handleSubmit}>
             <input
               onChange={handleInput}
               type="text"
@@ -52,13 +57,13 @@ export default function Login() {
             />
             <button>Log-In!</button>
           </form>
+          {cartItems.length > 0 ? (
+            <h3>Please sign in to place an order!</h3>
+          ) : null}
           <p>
             Don't have an account?{" "}
             <Link to="/signup_customer">Sign-up here!</Link>
           </p>
-          {cartItems.length > 0 ? (
-            <h3>Please sign in to place an order!</h3>
-          ) : null}
           {hasError ? (
             <div>
               {errors.map((error) => (

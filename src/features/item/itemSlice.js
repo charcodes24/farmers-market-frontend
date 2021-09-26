@@ -42,7 +42,6 @@ export const updateItem = createAsyncThunk("item/updateItem", async ({id, form})
     }),
   });
   const data = await response.json()
-  debugger
   return data
 })
 

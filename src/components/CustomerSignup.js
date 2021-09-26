@@ -30,8 +30,8 @@ export default function CustomerSignup() {
 
     return (
       <div>
-        <div>
-          <form onSubmit={handleSubmit}>
+        <div className="signup">
+          <form className="signup-form" onSubmit={handleSubmit}>
             <input
               onChange={handleInput}
               type="text"

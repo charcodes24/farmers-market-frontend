@@ -22,7 +22,8 @@ code {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
+    margin: 12%;
 }
 
 .vendor.card {
@@ -54,6 +55,9 @@ img {
     align-items: center;
     flex-wrap: wrap;
     align-content: center;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 5%;
 }
 
 .cart-items {
@@ -92,3 +96,68 @@ img {
   max-width: 50px;
   max-height: 75px;
 }
+
+.vendor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.item-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.item-text {
+  text-align: center;
+}
+
+.login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    margin-top: 17%;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input[type="text"] {
+    text-align: center;
+    padding: 5px;
+}
+
+.signup {
+    display: flex;
+    justify-content: center;
+}
+
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.update-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px;
+}
+
+.add-item {
+  display: flex;
+}
+
+.add-itemform {
+  display: flex;
+}
+
+
