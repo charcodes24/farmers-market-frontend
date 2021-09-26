@@ -12,9 +12,9 @@ export default function CartItem({ item }) {
 
 
     return (
-      <div className="cart-card">
+      <div>
         <div>
-          <h1>{name}</h1>
+          <h1 className="col">{name}</h1>
           <h2>Price: {price}</h2>
           <h3>Quantity: {item.quantity}</h3>
         </div>

@@ -14,11 +14,10 @@ export default function CustomerHomePage() {
 
     const displayVendors = vendors.map((vendor) => {
         return (
-            <VendorCard
-                key={vendor.id}
-                vendor={vendor}
-            />
-        )
+          <div className="col">
+            <VendorCard key={vendor.id} vendor={vendor} />
+          </div>
+        );
     })
 
     useEffect(() => {
@@ -26,11 +25,13 @@ export default function CustomerHomePage() {
     }, [dispatch]);
 
     return (
+      <div>
         <div>
-            <About />
-            <div className="vendors">
-                {displayVendors}
-            </div>
+          <About />
+        </div>
+        <div className="row">
+          <div>{displayVendors}</div>
+        </div>
       </div>
     );
 }

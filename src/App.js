@@ -31,7 +31,7 @@ function App() {
   }, [dispatch]);
 
   return (
-    <div className="app">
+    <div className="container">
       <Loading />
       <NavBar />
       <Switch>

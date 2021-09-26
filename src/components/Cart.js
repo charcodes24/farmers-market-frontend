@@ -55,11 +55,11 @@ export default function Cart() {
 
 
   return (
-    <div>
+    <div className="container">
       {(cartItems.length > 0) ? (
         <div>
-          <div className="cart-items">{displayCart}</div>
-          <div>
+          <div className="row">{displayCart}</div>
+          <div className="row">
             <h2>Total: {total}</h2>
           </div>
           <div>
