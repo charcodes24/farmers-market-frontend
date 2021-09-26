@@ -68,7 +68,7 @@ export default function Cart() {
           </div>
         </div>
       ) : (
-        <div>
+        <div className="empty">
           <h3>Your cart is empty</h3>
         </div>
       )}

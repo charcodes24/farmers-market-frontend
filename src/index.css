@@ -1,6 +1,7 @@
 * {
   box-sizing: border-box;
-  font-family: 'Staatliches', cursive;
+  /* font-family: 'Quicksand', sans-serif; */
+  font-family: 'Comfortaa', cursive;
 }
 
 body {
@@ -28,14 +29,13 @@ code {
 
 .vendor.card {
     display: flex;
-    width: 250px;
-    height: 300px;
-    justify-content: center;
+    width: 200px;
+    height: 250px;
     align-items: center;
-    flex-direction: column;
-    padding: 25px;
+    padding: 16%;
     font-size: 45px;
     text-align: center;
+    align-content: stretch;
 }
 
 .link {
@@ -158,6 +158,12 @@ input[type="text"] {
 
 .add-itemform {
   display: flex;
+}
+
+.empty {
+    display: flex;
+    justify-content: center;
+    margin-top: 13%;
 }
 
 
