@@ -8,8 +8,9 @@ export default function CustomerSignup() {
     const dispatch = useDispatch()
     const errors = useSelector(state => state.login.errors)
     const [form, setForm] = useState({
-        name:"",
+    name:"",
     username: "",
+    email: "", 
     password: "",
     password_confirmation: "",
     });
@@ -22,6 +23,8 @@ export default function CustomerSignup() {
         [e.target.name]: e.target.value,
       });
     }
+  
+  console.log("SIGN UP", form)
 
     function handleSubmit(e) {
         e.preventDefault()
@@ -45,6 +48,13 @@ export default function CustomerSignup() {
               name="username"
               value={form.username}
               placeholder="username"
+            />
+            <input
+              onChange={handleInput}
+              type="text"
+              name="email"
+              value={form.email}
+              placeholder="email"
             />
             <input
               onChange={handleInput}
