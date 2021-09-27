@@ -12,7 +12,7 @@ export default function CartItem({ item }) {
 
 
     return (
-        <div className="col-4 justify-content-center">
+        <div className="col-12 p-5">
           <h6>{name}</h6>
           <p>Price: {price}</p>
           <p>Quantity: {item.quantity}</p>

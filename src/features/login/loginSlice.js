@@ -67,6 +67,7 @@ export const createVendor = createAsyncThunk(
         vendor: {
           name: form.name,
           description: form.description,
+          email: form.email,
           username: form.username,
           password: form.password,
           password_confirmation: form.password_confirmation,

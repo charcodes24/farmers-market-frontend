@@ -21,7 +21,7 @@ export default function AddItmForm() {
         })
     }
 
-    function handleSubmit(e) {
+  function handleSubmit(e) {
         e.preventDefault()
         dispatch(addItem(form))
     }

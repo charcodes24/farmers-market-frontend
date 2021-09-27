@@ -58,7 +58,7 @@ export default function Cart() {
     <div className="container">
       {cartItems.length > 0 ? (
         <div>
-          <div className="row justify-content-center">
+          <div className="row mt-5 justify-content-center">
             <h1>Your Cart:</h1>
           </div>
           <div className="row justify-content-center">{displayCart}</div>

@@ -25,7 +25,7 @@ export default function ItemCard({ item }) {
           <h3>{name}</h3>
           <h4>${price}</h4>
           {!vendorLoggedIn ? (
-            <button onClick={() => addToCart(item)}>Add</button>
+            <button onClick={() => addToCart(item)} className="btn">Add</button>
           ) : null}
           {item.vendor_id === vendor.id ? (
             <button

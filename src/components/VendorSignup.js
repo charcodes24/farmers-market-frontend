@@ -10,6 +10,7 @@ export default function VendorSignup() {
     const [form, setForm] = useState({
       name: "",
       description: "",
+      email: "",
       username: "",
       password: "",
       password_confirmation: "",
@@ -24,9 +25,12 @@ export default function VendorSignup() {
         [e.target.name]: e.target.value,
       });
     }
+  
+  console.log("VENDOR SIGNUP", form)
 
     function handleSubmit(e) {
-        e.preventDefault()
+      e.preventDefault()
+      debugger
         dispatch(createVendor(form))
     }
 
@@ -34,8 +38,9 @@ export default function VendorSignup() {
     return (
       <div>
         <div className="signup">
-          <form className="signup-form" onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} className="container">
             <input
+              className="row"
               onChange={handleInput}
               type="text"
               name="name"
@@ -43,6 +48,7 @@ export default function VendorSignup() {
               placeholder="name"
             />
             <textarea
+              className="row"
               onChange={handleInput}
               type="text"
               name="description"
@@ -50,6 +56,15 @@ export default function VendorSignup() {
               placeholder="description"
             />
             <input
+              className="row"
+              onChange={handleInput}
+              type="text"
+              name="email"
+              value={form.email}
+              placeholder="email"
+            />
+            <input
+              className="row"
               onChange={handleInput}
               type="text"
               name="username"
@@ -57,6 +72,7 @@ export default function VendorSignup() {
               placeholder="username"
             />
             <input
+              className="row"
               onChange={handleInput}
               type="text"
               name="password"
@@ -64,21 +80,20 @@ export default function VendorSignup() {
               placeholder="password"
             />
             <input
+              className="row"
               onChange={handleInput}
               type="text"
               name="password_confirmation"
               value={form.password_confirmation}
               placeholder="password confirmation"
             />
-            <button>Sign Up!</button>
+            <button type="submit" className="btn">
+              Sign Up!
+            </button>
           </form>
         </div>
         <div>
-          {errors.length > 0
-            ? errors.map((error) => (
-                <h3>{error}</h3>
-              ))
-            : null}
+          {errors.length > 0 ? errors.map((error) => <h3>{error}</h3>) : null}
         </div>
       </div>
     );
