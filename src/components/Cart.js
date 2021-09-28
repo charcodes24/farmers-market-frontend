@@ -47,7 +47,7 @@ export default function Cart() {
           item_ids: cartIds(cartItems),
         })
       );
-      dispatch(clearCart());
+      // dispatch(clearCart());
     } else {
       history.push('/login')
     }
@@ -66,8 +66,8 @@ export default function Cart() {
             <h2>Total: {total}</h2>
           </div>
           <div className="row justify-content-center">
-            <button className="btn" type="button" onClick={handlePlaceOrder}>Place Order</button>
-            <button className="btn" type="button" onClick={handleClearCart}>Clear Cart</button>
+            <button type="submit" className="btn" onClick={handlePlaceOrder}>Place Order</button>
+            <button type="button" className="btn" onClick={handleClearCart}>Clear Cart</button>
           </div>
         </div>
       ) : (

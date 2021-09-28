@@ -1,14 +1,20 @@
 import { Link } from "react-router-dom"
 
 export default function VendorCard({ vendor }) {
-    const { id, name } = vendor
+  const { id, name } = vendor
+  
+  const card = {
+    width: "12rem",
+    height: "12rem",
+    fontSize: "24px"
+  }
 
 
     return (
-      <div className="col-md-3 p-5 justify-content-center">
-        <div className="p-card p-4rounded px-3">
+      <div className="col-sm-4 p-5 card border-light" style={card}>
+        <div>
           <Link to={`/vendors/${id}`}>
-            <p>{name}</p>
+            <p className="card-title text-center">{name}</p>
           </Link>
         </div>
       </div>

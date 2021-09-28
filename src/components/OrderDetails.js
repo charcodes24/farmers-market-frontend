@@ -1,8 +1,11 @@
-import { useEffect } from "react"
-import { useParams } from "react-router"
+
+import { useParams, useHistory } from "react-router"
 import { useSelector, useDispatch } from "react-redux"
 
+import { orderAgain } from "../features/cart/cartSlice"
+
 export default function OrderDetails() {
+  const history = useHistory()
     const dispatch = useDispatch()
     const orders = useSelector(state => state.cart.orders)
     const { id } = useParams()
@@ -15,7 +18,6 @@ export default function OrderDetails() {
         sums[item.name] = (sums[item.name] || 0) + 1;
         return sums
     }, {})
-    console.log(filteredItems)
 
     const itemsArray = Object.entries(filteredItems)
     const displayItems = itemsArray.map(item => {
@@ -26,7 +28,14 @@ export default function OrderDetails() {
           </div>
         );
     })
-    console.log("DISPLAY ITEMS", displayItems);
+  
+  console.log("FILTERED ITEMS", filteredItems)
+  console.log("ITEMS ARRAY", itemsArray)
+  
+  function hanldeOrderAgain() {
+    dispatch(orderAgain(thisOrder.items))
+    history.push('/cart')
+  }
 
     
     return (
@@ -35,7 +44,7 @@ export default function OrderDetails() {
         <h3>Order Number: {thisOrder.id}</h3>
         {displayItems}
         <h3>Order Total: ${thisOrder.subtotal}</h3>
-            <button>Order Again</button>
+        <button className="btn" onClick={hanldeOrderAgain}>Order Again</button>
       </div>
     );
 }

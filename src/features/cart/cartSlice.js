@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 export const createOrder = createAsyncThunk(
   "cart/createOrder",
-  async ({customer_id, total, item_ids}) => {
+  async ({ customer_id, total, item_ids }) => {
     const response = await fetch("/order", {
     method: "POST",
     headers: {
@@ -77,6 +77,8 @@ const cartSlice = createSlice({
     clearOrders(state) {
       state.orders = [];
     },
+    orderAgain(state, { payload }) {
+    }
   },
   extraReducers: {
     [createOrder.pending]: (state) => {
@@ -108,7 +110,7 @@ const cartSlice = createSlice({
   },
 });
 
-export const { addItemToCart, decreaseQuantity, removeItemFromCart, clearCart, clearOrders, thisOrder } = cartSlice.actions
+export const { addItemToCart, decreaseQuantity, removeItemFromCart, clearCart, clearOrders, thisOrder, orderAgain } = cartSlice.actions
 export default cartSlice.reducer
 
 
