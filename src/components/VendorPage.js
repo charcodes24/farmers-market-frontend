@@ -28,10 +28,12 @@ export default function VendorPage() {
       <div className="container mt-5 mb-5">
         <div className="row">
           <h1>{vendor.name}</h1>
+        </div>
+        <div classname="row">
           <p>{vendor.description}</p>
         </div>
         <div className="row mt-3">
-          <div className="col-md-4">{displayItems}</div>
+          <div>{displayItems}</div>
         </div>
       </div>
     );

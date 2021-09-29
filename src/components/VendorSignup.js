@@ -37,10 +37,9 @@ export default function VendorSignup() {
 
     return (
       <div>
-        <div className="signup">
-          <form onSubmit={handleSubmit} className="container">
+        <div>
+          <form className="signup-vendor" onSubmit={handleSubmit}>
             <input
-              className="row"
               onChange={handleInput}
               type="text"
               name="name"
@@ -48,7 +47,6 @@ export default function VendorSignup() {
               placeholder="name"
             />
             <textarea
-              className="row"
               onChange={handleInput}
               type="text"
               name="description"
@@ -56,7 +54,6 @@ export default function VendorSignup() {
               placeholder="description"
             />
             <input
-              className="row"
               onChange={handleInput}
               type="text"
               name="email"
@@ -64,7 +61,6 @@ export default function VendorSignup() {
               placeholder="email"
             />
             <input
-              className="row"
               onChange={handleInput}
               type="text"
               name="username"
@@ -72,7 +68,6 @@ export default function VendorSignup() {
               placeholder="username"
             />
             <input
-              className="row"
               onChange={handleInput}
               type="text"
               name="password"
@@ -80,7 +75,6 @@ export default function VendorSignup() {
               placeholder="password"
             />
             <input
-              className="row"
               onChange={handleInput}
               type="text"
               name="password_confirmation"

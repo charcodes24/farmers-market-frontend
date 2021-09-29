@@ -19,13 +19,15 @@ export default function ItemCard({ item }) {
     
 
     return (
-      <div className="p-card p-2 rounded px-3">
+      <div className="col-md-4">
         <img src={image_url} alt={name} />
-        <div >
+        <div>
           <h3>{name}</h3>
           <h4>${price}</h4>
           {!vendorLoggedIn ? (
-            <button onClick={() => addToCart(item)} className="btn">Add</button>
+            <button onClick={() => addToCart(item)} className="btn">
+              Add
+            </button>
           ) : null}
           {item.vendor_id === vendor.id ? (
             <button

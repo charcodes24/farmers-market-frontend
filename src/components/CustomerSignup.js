@@ -33,7 +33,7 @@ export default function CustomerSignup() {
 
     return (
       <div>
-        <div className="signup">
+        <div>
           <form className="signup-form" onSubmit={handleSubmit}>
             <input
               onChange={handleInput}

@@ -191,3 +191,40 @@ img {
   height: 300px;
 }
 
+.form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 25%;
+}
+
+.fields {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 25%;
+}
+
+.signup-vendor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 25%
+}
+
+input {
+  padding: 5px;
+  margin: 3px;
+}
+
+.alert {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: rgb(61, 81, 172);
+}

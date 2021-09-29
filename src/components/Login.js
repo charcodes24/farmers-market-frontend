@@ -39,8 +39,8 @@ export default function Login() {
       return isLoading ? (
         <Loading />
       ) : (
-        <div className="login">
-          <form className="login-form" onSubmit={handleSubmit}>
+        <div className="form">
+          <form className="fields" onSubmit={handleSubmit}>
             <input
               onChange={handleInput}
               type="text"
@@ -55,22 +55,25 @@ export default function Login() {
               value={form.password}
               placeholder="password"
             />
-            <button>Log-In!</button>
+            <button className="btn">Log-In!</button>
+
+            <p>
+              Don't have an account?{" "}
+              <Link to="/signup_customer">Sign-up here!</Link>
+            </p>
           </form>
-          {cartItems.length > 0 ? (
-            <h3>Please sign in to place an order!</h3>
-          ) : null}
-          <p>
-            Don't have an account?{" "}
-            <Link to="/signup_customer">Sign-up here!</Link>
-          </p>
           {hasError ? (
-            <div>
+            <div className="alert">
               {errors.map((error) => (
                 <h3>{error}</h3>
               ))}
             </div>
-          ) : null}
+            ) : null}
+            {(cartItems.length > 0) ? (
+              <div className="alert">
+                <h3>Please login or sign-up to place and order.</h3>
+              </div>
+            ) : null}
         </div>
       );
     }

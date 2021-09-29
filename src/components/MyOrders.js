@@ -20,14 +20,16 @@ export default function MyOrders() {
     
     return (
       <div className="container mt-5">
-        <div className="row">
+        <div className="row justify-content-center">
           {orders.length > 0 ? (
             <h1>My Orders</h1>
           ) : (
             <h3>You haven't placed any orders yet.</h3>
           )}
         </div>
-        <div className="row">{displayOrders}</div>
+        <div className="row justify-content-center">
+          <div className="row p-5 justify-content-center">{displayOrders}</div>
+        </div>
       </div>
     );
 }
