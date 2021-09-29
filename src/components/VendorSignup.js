@@ -6,6 +6,7 @@ import { createVendor } from "../features/login/loginSlice";
 
 export default function VendorSignup() {
   const dispatch = useDispatch()
+  const hasError = useSelector(state => state.login.hasError)
   const errors = useSelector(state => state.login.errors)
     const [form, setForm] = useState({
       name: "",
@@ -86,9 +87,13 @@ export default function VendorSignup() {
             </button>
           </form>
         </div>
-        <div>
-          {errors.length > 0 ? errors.map((error) => <h3>{error}</h3>) : null}
-        </div>
+        {hasError ? (
+          <div className="alert">
+            {errors.map((error) => (
+              <h3>{error}</h3>
+            ))}
+          </div>
+        ) : null}
       </div>
     );
 }

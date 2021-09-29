@@ -5,9 +5,13 @@ import { useSelector, useDispatch } from "react-redux"
 import { updateItem } from "../features/item/itemSlice"
 
 export default function ItemForm({ item }) {
+    const { name, image_url, price } = item;
+
+    //REDUX
     const dispatch = useDispatch()
     const vendorID = useSelector(state => state.login.vendor.id)
-    const { name, image_url, price } = item
+
+    //STATE
     const [form, setForm] = useState({
         name: "",
         image_url: "",
@@ -15,15 +19,12 @@ export default function ItemForm({ item }) {
         vendor_id: vendorID
     })
 
-    console.log("VENDOR ID", vendorID)
     function handleInput(e) {
         setForm({
             ...form,
             [e.target.name] : e.target.value
         })
     }
-
-    console.log("FORM", form)
 
     function handleSubmit(e) {
         e.preventDefault()

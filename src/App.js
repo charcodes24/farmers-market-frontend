@@ -18,10 +18,12 @@ import OrderPage from "./components/OrderDetails";
 
 
 function App() {
+  //REDUX
   const dispatch = useDispatch()
   const customerLoggedIn = useSelector(state => state.login.customerLoggedIn)
   const vendorLoggedIn = useSelector((state) => state.login.vendorLoggedIn)
 
+  //PERSISTING USER LOGIN
   useEffect(() => {
     fetch("/loggedin").then((res) => {
       if (res.ok) {

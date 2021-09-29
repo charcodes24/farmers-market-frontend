@@ -7,16 +7,16 @@ import { useDispatch, useSelector } from "react-redux";
 import ItemForm from "./ItemForm";
 
 export default function ItemCard({ item }) {
+  const { id, name, image_url, price } = item;
+
+  //REDUX
   const dispatch = useDispatch()
   const vendorLoggedIn = useSelector(state => state.login.vendorLoggedIn)
   const vendor = useSelector(state => state.login.vendor)
-  const { id, name, image_url, price } = item
 
   function addToCart(item) {
     dispatch(addItemToCart(item))
   }
-
-    
 
     return (
       <div className="col-md-4">

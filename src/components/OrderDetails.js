@@ -5,22 +5,25 @@ import { useSelector, useDispatch } from "react-redux"
 import { orderAgain } from "../features/cart/cartSlice"
 
 export default function OrderDetails() {
+  //USEHISTORY HOOK
   const history = useHistory()
-    const dispatch = useDispatch()
-    const orders = useSelector(state => state.cart.orders)
-    const { id } = useParams()
 
-    const thisOrder = orders.find(order => order.id === parseInt(id))
-    console.log("THIS ORDER", thisOrder)
-    console.log("ITEMS", thisOrder.items)
+  //PARAMS
+  const { id } = useParams();
 
-    const filteredItems = thisOrder.items.reduce((sums, item) => {
-        sums[item.name] = (sums[item.name] || 0) + 1;
-        return sums
-    }, {})
+  //REDUX
+  const dispatch = useDispatch()
+  const orders = useSelector(state => state.cart.orders)
 
-    const itemsArray = Object.entries(filteredItems)
-    const displayItems = itemsArray.map(item => {
+  const thisOrder = orders.find(order => order.id === parseInt(id))
+
+  const filteredItems = thisOrder.items.reduce((sums, item) => {
+      sums[item.name] = (sums[item.name] || 0) + 1;
+      return sums
+  }, {})
+
+  const itemsArray = Object.entries(filteredItems)
+  const displayItems = itemsArray.map(item => {
         return (
           <div>
                 <p>Item: {item[0]}</p>
@@ -28,9 +31,6 @@ export default function OrderDetails() {
           </div>
         );
     })
-  
-  console.log("FILTERED ITEMS", filteredItems)
-  console.log("ITEMS ARRAY", itemsArray)
   
   function hanldeOrderAgain() {
     dispatch(orderAgain(thisOrder.items))

@@ -5,8 +5,11 @@ import { useDispatch, useSelector } from "react-redux"
 import { createCustomer } from "../features/login/loginSlice";
 
 export default function CustomerSignup() {
+  //REDUX
     const dispatch = useDispatch()
-    const errors = useSelector(state => state.login.errors)
+  const errors = useSelector(state => state.login.errors)
+  
+  //STATE
     const [form, setForm] = useState({
     name:"",
     username: "",
@@ -14,8 +17,6 @@ export default function CustomerSignup() {
     password: "",
     password_confirmation: "",
     });
-  
-  console.log(errors)
 
     function handleInput(e) {
       setForm({
@@ -23,8 +24,6 @@ export default function CustomerSignup() {
         [e.target.name]: e.target.value,
       });
     }
-  
-  console.log("SIGN UP", form)
 
     function handleSubmit(e) {
         e.preventDefault()

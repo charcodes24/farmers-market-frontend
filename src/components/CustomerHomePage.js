@@ -7,11 +7,11 @@ import About from "./About"
 import VendorCard from "./VendorCard"
 
 export default function CustomerHomePage() {
+  //REDUX
     const dispatch = useDispatch()
-    const customer = useSelector(state => state.login.customer)
-    const vendor = useSelector(state => state.login.vendor)
     const vendors = useSelector(state => state.vendor.vendorList)
 
+  //DISPLAYING VENDORS IN VENDORCARDS
     const displayVendors = vendors.map((vendor) => <VendorCard key={vendor.id} vendor={vendor} />)
 
     useEffect(() => {

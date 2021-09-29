@@ -8,7 +8,10 @@ import ItemCard from "./ItemCard";
 import Loading from "./Loading";
 
 export default function VendorPage() {
+  //PARAMS
   const { id } = useParams();
+
+  //REDUX
   const dispatch = useDispatch();
   const items = useSelector(state => state.vendor.vendor.items)
   const vendor = useSelector(state => state.vendor.vendor)

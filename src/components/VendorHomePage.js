@@ -7,7 +7,6 @@ import AddItemForm from "./AddItemForm"
 import Loading from "./Loading"
 
 export default function VendorHomePage() {
-
     //REDUX
     const dispatch = useDispatch()
     const vendor = useSelector(state => state.login.vendor)

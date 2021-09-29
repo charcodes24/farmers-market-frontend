@@ -5,12 +5,14 @@ import { userLogout } from "../features/login/loginSlice";
 import { clearCart, clearOrders } from "../features/cart/cartSlice";
 
 export default function CustomerNavBar() {
+  //USEHISTORY HOOK
+  const history = useHistory();
+
   //REDUX STORE
-    const customerLoggedIn = useSelector(state => state.login.customerLoggedIn)
+  const customerLoggedIn = useSelector(state => state.login.customerLoggedIn)
   const vendorLoggedIn = useSelector(state => state.login.vendorLoggedIn)
   const cartItems = useSelector(state => state.cart.cartItems)
-    const dispatch = useDispatch()
-    const history = useHistory()
+  const dispatch = useDispatch()
 
     function handleLogout(e) {
       e.preventDefault()

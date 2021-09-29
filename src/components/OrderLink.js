@@ -4,7 +4,7 @@ export default function OrderLink({ order }) {
     const { id, subtotal, date_placed } = order
     
     return (
-        <div className="card col-4 p-4 text-center">
+        <div classname="col m-5">
             <Link to={`/orders/${id}`}>
             <p>Order #{id}</p>
             </Link>

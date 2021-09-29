@@ -3,20 +3,19 @@ import { useSelector, useDispatch } from "react-redux"
 
 import { getOrders } from "../features/cart/cartSlice"
 
-import OrderItem from "./OrderLink"
+import OrderLink from "./OrderLink"
 
 export default function MyOrders() {
+  //REDUX
   const dispatch = useDispatch()
   const customer = useSelector(state => state.login.customer)
   const orders = useSelector(state => state.cart.orders)
-
-  console.log(orders)
   
   useEffect(() => {
     dispatch(getOrders(customer.id))
   }, [dispatch, customer.id]);
 
-  const displayOrders = orders.map(order => <OrderItem key={order.id} order={order}/>)
+  const displayOrders = orders.map(order => <OrderLink key={order.id} order={order}/>)
     
     return (
       <div className="container mt-5">

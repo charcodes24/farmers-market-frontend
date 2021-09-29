@@ -3,8 +3,10 @@ import { useSelector, useDispatch } from "react-redux";
 import { removeItemFromCart, decreaseQuantity } from "../features/cart/cartSlice";
 
 export default function CartItem({ item }) {
+  const { id, name, price } = item;
+
+  //REDUX
   const dispatch = useDispatch()
-  const { id, name, price } = item
 
   function handleDecreaseQuantity() {
     dispatch(decreaseQuantity(id))

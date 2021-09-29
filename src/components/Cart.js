@@ -6,13 +6,14 @@ import { clearCart, createOrder } from "../features/cart/cartSlice";
 import CartItem from "./CartItem"
 
 export default function Cart() {
-  const dispatch = useDispatch();
+  //USEHISTORY HOOK
   const history = useHistory();
+
+  //REDUX
+  const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart.cartItems);
   const customer = useSelector((state) => state.login.customer);
   const total = useSelector((state) => state.cart.total);
-
-  console.log("CARTITEMS", cartItems)
 
   //DISPLAYING ITEMS 
   const displayCart = cartItems.map(item => <CartItem key={item.id} item={item} />)
@@ -31,8 +32,6 @@ export default function Cart() {
     }
     return ids
   }
-  
-  console.log("HIIII" ,cartIds(cartItems));
 
   function handleClearCart() {
     dispatch(clearCart());

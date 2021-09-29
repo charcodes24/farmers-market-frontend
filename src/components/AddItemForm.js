@@ -4,8 +4,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { addItem } from "../features/item/itemSlice";
 
 export default function AddItmForm() {
+  //REDUX
     const dispatch = useDispatch()
-    const vendor = useSelector(state => state.login.vendor)
+  const vendor = useSelector(state => state.login.vendor)
+  
     //REACT STATE 
     const [form, setForm] = useState({
       name: "",
