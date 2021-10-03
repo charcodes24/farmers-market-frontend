@@ -4,12 +4,16 @@ export default function OrderLink({ order }) {
     const { id, subtotal, date_placed } = order
     
     return (
-        <div classname="col m-5">
-            <Link to={`/orders/${id}`}>
+      <div className="col-sm-4 p-5 card border-light">
+        <div classname="row">
+          <Link to={`/orders/${id}`}>
             <p>Order #{id}</p>
-            </Link>
-            <p>{date_placed}</p>
-            <p><strong>TOTAL: ${subtotal}</strong></p>
+          </Link>
+          <p>{date_placed}</p>
+          <p>
+            <strong>TOTAL: ${subtotal}</strong>
+          </p>
         </div>
-    )
+      </div>
+    );
 }
