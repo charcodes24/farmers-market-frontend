@@ -15,22 +15,24 @@ export default function Cart() {
   const customer = useSelector((state) => state.login.customer);
   const total = useSelector((state) => state.cart.total);
 
-  //DISPLAYING ITEMS 
-  const displayCart = cartItems.map(item => <CartItem key={item.id} item={item} />)
+  //DISPLAYING ITEMS
+  const displayCart = cartItems.map((item) => (
+    <CartItem key={item.id} item={item} />
+  ));
 
   //LOGIC FOR ITERATING AND CREATING AN ARRAY WITH EVERY INSTANCE OF AN ITEM'S QUANTITY TO SEND FOR CREATE ORDER
   function cartIds(array) {
-    let ids = []
+    let ids = [];
     for (let i = 0; i < array.length; i++) {
       if (array[i].quantity > 0) {
         for (let j = 0; j < array[i].quantity; j++) {
-          ids.push(array[i].id)
+          ids.push(array[i].id);
         }
       } else {
-        ids.push(array[i].id)
+        ids.push(array[i].id);
       }
     }
-    return ids
+    return ids;
   }
 
   function handleClearCart() {
@@ -48,10 +50,14 @@ export default function Cart() {
       );
       // dispatch(clearCart());
     } else {
-      history.push('/login')
+      history.push("/login");
     }
   }
 
+  //STYLING
+  const card = {
+    marginTop: "18%",
+  };
 
   return (
     <div className="container">
@@ -65,12 +71,16 @@ export default function Cart() {
             <h2>Total: {total}</h2>
           </div>
           <div className="row justify-content-center">
-            <button type="submit" className="btn" onClick={handlePlaceOrder}>Place Order</button>
-            <button type="button" className="btn" onClick={handleClearCart}>Clear Cart</button>
+            <button type="submit" className="btn" onClick={handlePlaceOrder}>
+              Place Order
+            </button>
+            <button type="button" className="btn" onClick={handleClearCart}>
+              Clear Cart
+            </button>
           </div>
         </div>
       ) : (
-        <div className="row justify-content-center">
+        <div className="row justify-content-center" style={card}>
           <h3>Your cart is empty.</h3>
         </div>
       )}

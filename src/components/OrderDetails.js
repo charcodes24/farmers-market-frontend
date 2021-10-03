@@ -37,9 +37,14 @@ export default function OrderDetails() {
     history.push('/cart')
   }
 
+  //STYLING
+  const card = {
+    marginTop: "18%"
+  };
+
     
     return (
-      <div>
+      <div className="text-center" style={card}>
         <h1>This order was placed on {thisOrder.date_placed}</h1>
         <h3>Order Number: {thisOrder.id}</h3>
         {displayItems}
