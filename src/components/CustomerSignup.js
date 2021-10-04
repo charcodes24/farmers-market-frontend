@@ -45,16 +45,16 @@ export default function CustomerSignup() {
             <input
               onChange={handleInput}
               type="text"
-              name="username"
-              value={form.username}
-              placeholder="username"
+              name="email"
+              value={form.email}
+              placeholder="email"
             />
             <input
               onChange={handleInput}
               type="text"
-              name="email"
-              value={form.email}
-              placeholder="email"
+              name="username"
+              value={form.username}
+              placeholder="username"
             />
             <input
               onChange={handleInput}
@@ -72,10 +72,7 @@ export default function CustomerSignup() {
             />
             <button className="btn">Sign Up!</button>
             <p className="link">
-              Are you a vendor? Sign-up {" "}
-              <Link to="/signup_vendor">
-                here.
-              </Link>
+              Are you a vendor? Sign-up <Link to="/signup_vendor">here.</Link>
             </p>
           </form>
         </div>
