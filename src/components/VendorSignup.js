@@ -52,7 +52,7 @@ export default function VendorSignup() {
               type="text"
               name="description"
               value={form.description}
-              placeholder="description"
+              placeholder="Shop description..."
             />
             <input
               onChange={handleInput}

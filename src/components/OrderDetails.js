@@ -25,9 +25,9 @@ export default function OrderDetails() {
   const itemsArray = Object.entries(filteredItems)
   const displayItems = itemsArray.map(item => {
         return (
-          <div>
-                <p>Item: {item[0]}</p>
-                <p>Quantity: {item[1]}</p>
+          <div className="col-sm-4 p-5 card border-light">
+            <p>Item: {item[0]}</p>
+            <p>Quantity: {item[1]}</p>
           </div>
         );
     })
@@ -47,9 +47,11 @@ export default function OrderDetails() {
       <div className="text-center" style={card}>
         <h1>This order was placed on {thisOrder.date_placed}</h1>
         <h3>Order Number: {thisOrder.id}</h3>
-        {displayItems}
+        <div className="row m-5 justify-content-center">{displayItems}</div>
         <h3>Order Total: ${thisOrder.subtotal}</h3>
-        <button className="btn" onClick={hanldeOrderAgain}>Order Again</button>
+        <button className="btn" onClick={hanldeOrderAgain}>
+          Order Again
+        </button>
       </div>
     );
 }

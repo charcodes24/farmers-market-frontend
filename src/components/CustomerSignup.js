@@ -6,8 +6,9 @@ import { createCustomer } from "../features/login/loginSlice";
 
 export default function CustomerSignup() {
   //REDUX
-    const dispatch = useDispatch()
+  const dispatch = useDispatch()
   const errors = useSelector(state => state.login.errors)
+  const hasError = useSelector(state => state.login.hasError)
   
   //STATE
     const [form, setForm] = useState({
@@ -69,13 +70,19 @@ export default function CustomerSignup() {
               value={form.password_confirmation}
               placeholder="re-type password"
             />
-            <button>Sign Up!</button>
+            <button className="btn">Sign Up!</button>
             <Link to="/signup_vendor">
               <p>Are you a vendor?</p>
             </Link>
           </form>
         </div>
-        {errors.length > 0 ? errors.map((error) => <h3>{error}</h3>) : null}
+        {hasError ? (
+          <div className="alert">
+            {errors.map((error) => (
+              <h3>{error}</h3>
+            ))}
+          </div>
+        ) : null}
       </div>
     );
 
