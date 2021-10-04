@@ -58,8 +58,8 @@ export default function Login() {
             <button className="btn">Log-In!</button>
 
             <p>
-              Don't have an account?{" "}
-              <Link to="/signup_customer">Sign-up here!</Link>
+              Don't have an account? Sign-up{" "}
+              <Link to="/signup_customer">here.</Link>
             </p>
           </form>
           {hasError ? (

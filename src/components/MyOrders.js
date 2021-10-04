@@ -23,7 +23,7 @@ export default function MyOrders() {
           {orders.length > 0 ? (
             <h1>My Orders</h1>
           ) : (
-            <h3>You haven't placed any orders yet.</h3>
+            <h3 className="form">You haven't placed any orders yet.</h3>
           )}
         </div>
         <div>

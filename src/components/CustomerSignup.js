@@ -71,9 +71,12 @@ export default function CustomerSignup() {
               placeholder="re-type password"
             />
             <button className="btn">Sign Up!</button>
-            <Link to="/signup_vendor">
-              <p>Are you a vendor?</p>
-            </Link>
+            <p className="link">
+              Are you a vendor? Sign-up {" "}
+              <Link to="/signup_vendor">
+                here.
+              </Link>
+            </p>
           </form>
         </div>
         {hasError ? (

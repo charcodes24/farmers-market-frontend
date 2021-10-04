@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux"
 
 import { createVendor } from "../features/login/loginSlice";
@@ -85,6 +86,9 @@ export default function VendorSignup() {
             <button type="submit" className="btn">
               Sign Up!
             </button>
+            <p className="link">
+              Are you a customer? Sign-up <Link to="/signup_customer">here.</Link>
+            </p>
           </form>
         </div>
         {hasError ? (

@@ -194,7 +194,7 @@ img {
 .form {
     display: flex;
     flex-direction: column;
-    margin-top: 25%;
+    margin-top: 15%;
 }
 
 .fields {
@@ -207,14 +207,14 @@ img {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 25%;
+    margin-top: 15%;
 }
 
 .signup-vendor {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 25%
+    margin-top: 15%
 }
 
 input {
@@ -228,3 +228,8 @@ input {
     align-items: center;
     color: rgb(61, 81, 172);
 }
+
+.link {
+  margin-top: 1rem;
+}
+
