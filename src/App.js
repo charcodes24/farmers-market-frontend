@@ -27,7 +27,9 @@ function App() {
   useEffect(() => {
     fetch("/loggedin").then((res) => {
       if (res.ok) {
-        res.json().then((user) => dispatch(logIn(user)))
+        res.json().then((user) => {
+          dispatch(logIn(user));
+        })
       }
     });
   }, [dispatch]);

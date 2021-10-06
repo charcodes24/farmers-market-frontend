@@ -1,8 +1,8 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux"
 
-import { createVendor } from "../features/login/loginSlice";
+import { createVendor, clearErrors } from "../features/login/loginSlice";
 
 
 export default function VendorSignup() {
@@ -28,11 +28,14 @@ export default function VendorSignup() {
       });
     }
   
-  console.log("VENDOR SIGNUP", form)
+  useEffect(() => {
+    return function () {
+      dispatch(clearErrors())
+    }
+  }, []);
 
     function handleSubmit(e) {
       e.preventDefault()
-      debugger
         dispatch(createVendor(form))
     }
 

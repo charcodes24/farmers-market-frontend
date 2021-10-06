@@ -92,7 +92,7 @@ const loginSlice = createSlice({
     vendorLoggedIn: false,
     errors: [],
     isLoading: false,
-    hasErro: false, 
+    hasError: false, 
   },
   reducers: {
     logIn(state, { payload }) {
@@ -104,6 +104,10 @@ const loginSlice = createSlice({
         state.customerLoggedIn = true;
       }
     },
+    clearErrors(state) {
+      state.hasError = false;
+      state.errors = [];
+    }
   },
   extraReducers: {
     [userLogin.pending]: (state) => {
@@ -201,5 +205,5 @@ const loginSlice = createSlice({
   },
 });
 
-export const { logIn } = loginSlice.actions
+export const { logIn, clearErrors } = loginSlice.actions
 export default loginSlice.reducer

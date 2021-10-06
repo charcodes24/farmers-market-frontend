@@ -46,9 +46,9 @@ export default function OrderDetails() {
     return (
       <div className="text-center" style={card}>
         <h1>This order was placed on {thisOrder.date_placed}</h1>
-        <h3>Order Number: {thisOrder.id}</h3>
+        <p>Order Number: {thisOrder.id}</p>
         <div className="row m-5 justify-content-center">{displayItems}</div>
-        <h3>Order Total: ${thisOrder.subtotal}</h3>
+        <p>Order Total: ${thisOrder.subtotal}</p>
         <button className="btn" onClick={hanldeOrderAgain}>
           Order Again
         </button>

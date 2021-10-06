@@ -1,8 +1,8 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 
-import { createCustomer } from "../features/login/loginSlice";
+import { createCustomer, clearErrors } from "../features/login/loginSlice";
 
 export default function CustomerSignup() {
   //REDUX
@@ -25,6 +25,12 @@ export default function CustomerSignup() {
         [e.target.name]: e.target.value,
       });
     }
+  
+  useEffect(() => {
+    return function () {
+      dispatch(clearErrors());
+    }
+  }, []);
 
     function handleSubmit(e) {
         e.preventDefault()

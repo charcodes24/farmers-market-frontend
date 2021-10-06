@@ -1,8 +1,8 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
-import { userLogin } from "../features/login/loginSlice";
+import { clearErrors, userLogin } from "../features/login/loginSlice";
 
 import Loading from "./Loading";
 
@@ -29,6 +29,13 @@ export default function Login() {
         [e.target.name]: e.target.value,
       });
     }
+  
+  
+  useEffect(() => {
+    return function() {
+      dispatch(clearErrors())
+    }
+  }, []);
 
     function handleSubmit(e) {
         e.preventDefault()
@@ -64,16 +71,17 @@ export default function Login() {
           </form>
           {hasError ? (
             <div className="alert">
+              <h3>Please fix the following:</h3>
               {errors.map((error) => (
-                <h3>{error}</h3>
+                <p>{error}</p>
               ))}
             </div>
-            ) : null}
-            {(cartItems.length > 0) ? (
-              <div className="alert">
-                <h3>Please login or sign-up to place and order.</h3>
-              </div>
-            ) : null}
+          ) : null}
+          {cartItems.length > 0 ? (
+            <div className="alert">
+              <h3>Please login or sign-up to place and order.</h3>
+            </div>
+          ) : null}
         </div>
       );
     }
