@@ -78,8 +78,9 @@ export default function CustomerSignup() {
         </div>
         {hasError ? (
           <div className="alert">
+            <h3>Please fix the following:</h3>
             {errors.map((error) => (
-              <h3>{error}</h3>
+              <p>{error}</p>
             ))}
           </div>
         ) : null}

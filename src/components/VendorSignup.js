@@ -87,14 +87,16 @@ export default function VendorSignup() {
               Sign Up!
             </button>
             <p className="link">
-              Are you a customer? Sign-up <Link to="/signup_customer">here.</Link>
+              Are you a customer? Sign-up{" "}
+              <Link to="/signup_customer">here.</Link>
             </p>
           </form>
         </div>
         {hasError ? (
           <div className="alert">
+            <h3>Please fix the following:</h3>
             {errors.map((error) => (
-              <h3>{error}</h3>
+              <p>{error}</p>
             ))}
           </div>
         ) : null}
