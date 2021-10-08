@@ -86,7 +86,7 @@ export default function VendorSignup() {
               value={form.password_confirmation}
               placeholder="password confirmation"
             />
-            <button type="submit" className="btn">
+            <button type="submit" className="btn signup">
               Sign Up!
             </button>
             <p className="link">
