@@ -27,7 +27,7 @@ export const addItem = createAsyncThunk("item/addItem", async (form) => {
   return data;
 });
 
-export const updateItem = createAsyncThunk("item/updateItem", async ({id, form}) => {
+export const updateItem = createAsyncThunk("item/updateItem", async ({id, form, item:{name, image_url, price}}) => {
   const response = await fetch(`/items/${id}`, {
     method: "PATCH",
     headers: {
@@ -35,9 +35,10 @@ export const updateItem = createAsyncThunk("item/updateItem", async ({id, form})
       Accept: "application/json",
     },
     body: JSON.stringify({
-      name: form.name,
-      image_url: form.image_url,
-      price: parseInt(form.price),
+      id: form.id, 
+      name: form.name || {name},
+      image_url: form.image_url || {image_url},
+      price: parseInt(form.price) || {price},
       vendor_id: form.vendor_id,
     }),
   });

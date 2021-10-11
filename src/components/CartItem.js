@@ -14,7 +14,7 @@ export default function CartItem({ item }) {
 
 
     return (
-        <div className="col-12 p-5">
+        <div className="col-12 p-4">
           <h6>{name}</h6>
           <p>Price: {price}</p>
           <p>Quantity: {item.quantity}</p>

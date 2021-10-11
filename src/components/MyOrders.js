@@ -18,7 +18,7 @@ export default function MyOrders() {
   const displayOrders = orders.map(order => <OrderLink key={order.id} order={order}/>)
     
     return (
-      <div className="text-center">
+      <div className="my-orders text-center">
         <div >
           {orders.length > 0 ? (
             <h1>My Orders</h1>

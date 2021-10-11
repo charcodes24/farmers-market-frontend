@@ -70,11 +70,11 @@ export default function Cart() {
           <div className="row justify-content-center">
             <h2>Total: {total}</h2>
           </div>
-          <div className="row justify-content-center">
-            <button type="submit" className="btn" onClick={handlePlaceOrder}>
+          <div className="buttons row justify-content-center">
+            <button type="submit" className="btn group" onClick={handlePlaceOrder}>
               Place Order
             </button>
-            <button type="button" className="btn" onClick={handleClearCart}>
+            <button type="button" className="btn group" onClick={handleClearCart}>
               Clear Cart
             </button>
           </div>
