@@ -22,10 +22,23 @@ export default function VendorSignup() {
   console.log(errors.length)
 
     function handleInput(e) {
-      setForm({
-        ...form,
-        [e.target.name]: e.target.value,
-      });
+      if (e.target.name === "name") {
+        setForm({
+          ...form,
+          [e.target.name]: e.target.value
+            .split(" ")
+            .map(
+              (word) =>
+                word.charAt(0).toUpperCase() + word.substring(1).toLowerCase()
+            )
+            .join(" "),
+        });
+      } else {
+        setForm({
+          ...form,
+          [e.target.name]: e.target.value,
+        });
+      }
     }
   
   useEffect(() => {

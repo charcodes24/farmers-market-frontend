@@ -19,12 +19,21 @@ export default function CustomerSignup() {
     password_confirmation: "",
     });
 
-    function handleInput(e) {
+  function handleInput(e) {
+    if (e.target.name === "name") {
+      setForm({
+        ...form,
+        [e.target.name]: e.target.value
+          .split(" ")
+          .map((word) => word.charAt(0).toUpperCase() + word.substring(1).toLowerCase())
+          .join(" "),
+      });
+    } else {
       setForm({
         ...form,
         [e.target.name]: e.target.value,
       });
-    }
+  }}
   
   useEffect(() => {
     return function () {

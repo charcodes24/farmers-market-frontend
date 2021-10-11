@@ -1,6 +1,6 @@
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 
-import { removeItemFromCart, decreaseQuantity } from "../features/cart/cartSlice";
+import { decreaseQuantity } from "../features/cart/cartSlice";
 
 export default function CartItem({ item }) {
   const { id, name, price } = item;
@@ -16,7 +16,7 @@ export default function CartItem({ item }) {
     return (
         <div className="col-12 p-4">
           <h6>{name}</h6>
-          <p>Price: {price}</p>
+          <p>Price: ${price}</p>
           <p>Quantity: {item.quantity}</p>
           <button className="btn" type="button" onClick={handleDecreaseQuantity}>
             {item.quantity === 1 ? "Remove Item" : "Decrease Quantity"}

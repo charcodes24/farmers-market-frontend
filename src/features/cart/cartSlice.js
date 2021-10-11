@@ -77,8 +77,6 @@ const cartSlice = createSlice({
     clearOrders(state) {
       state.orders = [];
     },
-    orderAgain(state, { payload }) {
-    }
   },
   extraReducers: {
     [createOrder.pending]: (state) => {

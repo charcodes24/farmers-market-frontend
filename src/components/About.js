@@ -1,6 +1,7 @@
-
+import { useSelector } from "react-redux";
 
 export default function About() {
+  const customer = useSelector((state) => state.login.customer);
 
   const about = {
     padding: "8rem"

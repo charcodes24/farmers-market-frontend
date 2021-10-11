@@ -79,7 +79,7 @@ export default function Login() {
           ) : null}
           {cartItems.length > 0 ? (
             <div className="alert">
-              <h3>Please login or sign-up to place and order.</h3>
+              <h3>Please login or sign-up to place an order.</h3>
             </div>
           ) : null}
         </div>

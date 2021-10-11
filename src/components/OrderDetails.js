@@ -2,8 +2,6 @@
 import { useParams, useHistory } from "react-router"
 import { useSelector, useDispatch } from "react-redux"
 
-import { orderAgain } from "../features/cart/cartSlice"
-
 export default function OrderDetails() {
   //USEHISTORY HOOK
   const history = useHistory()
@@ -31,11 +29,6 @@ export default function OrderDetails() {
           </div>
         );
     })
-  
-  function hanldeOrderAgain() {
-    dispatch(orderAgain(thisOrder.items))
-    history.push('/cart')
-  }
 
   //STYLING
   const card = {
@@ -46,12 +39,8 @@ export default function OrderDetails() {
     return (
       <div className="text-center" style={card}>
         <h1>This order was placed on {thisOrder.date_placed}</h1>
-        <p>Order Number: {thisOrder.id}</p>
         <div className="row m-5 justify-content-center">{displayItems}</div>
-        <p>Order Total: ${thisOrder.subtotal}</p>
-        <button className="btn" onClick={hanldeOrderAgain}>
-          Order Again
-        </button>
+        <h4>Order Total: ${thisOrder.subtotal}</h4>
       </div>
     );
 }
