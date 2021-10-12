@@ -15,7 +15,7 @@ export default function VendorPage() {
   const dispatch = useDispatch();
   const items = useSelector(state => state.vendor.vendor.items)
   const vendor = useSelector(state => state.vendor.vendor)
-  const loading = useSelector(state => state.vendor.isLoadingVendor)
+  const loading = useSelector(state => state.vendor.isLoading)
   
 
   useEffect(() => {

@@ -28,6 +28,9 @@ const vendorSlice = createSlice({
     hasError: false,
   },
   reducers: {
+    clearVendor(state) {
+      state.vendor = {};
+    }
   },
   extraReducers: {
     [getVendors.pending]: (state) => {
@@ -36,7 +39,6 @@ const vendorSlice = createSlice({
     },
     [getVendors.fulfilled]: (state, { payload }) => {
       state.vendorList = payload;
-      state.isLoading = false;
       state.hasError = false;
     },
     [getVendors.rejected]: (state) => {
@@ -45,10 +47,12 @@ const vendorSlice = createSlice({
     },
     [showVendor.pending]: (state) => {
       state.isLoading = true;
+      state.isLoadingVendor = true;
       state.hasError = false;
     },
     [showVendor.fulfilled]: (state, { payload }) => {
       state.vendor = payload;
+      state.isLoading = false;
       state.isLoadingVendor = false;
       state.hasError = false;
     },
@@ -59,5 +63,5 @@ const vendorSlice = createSlice({
   },
 });
 
-export const { getVendor } = vendorSlice.actions
+export const { clearVendor } = vendorSlice.actions
 export default vendorSlice.reducer
