@@ -1,16 +1,12 @@
 
-import { useParams, useHistory } from "react-router"
-import { useSelector, useDispatch } from "react-redux"
+import { useParams } from "react-router"
+import { useSelector } from "react-redux"
 
 export default function OrderDetails() {
-  //USEHISTORY HOOK
-  const history = useHistory()
-
   //PARAMS
   const { id } = useParams();
 
   //REDUX
-  const dispatch = useDispatch()
   const orders = useSelector(state => state.cart.orders)
 
   const thisOrder = orders.find(order => order.id === parseInt(id))

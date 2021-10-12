@@ -45,7 +45,7 @@ export default function VendorSignup() {
     return function () {
       dispatch(clearErrors())
     }
-  }, []);
+  }, [dispatch]);
 
     function handleSubmit(e) {
       e.preventDefault()

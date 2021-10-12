@@ -39,7 +39,7 @@ export default function CustomerSignup() {
     return function () {
       dispatch(clearErrors());
     }
-  }, []);
+  }, [dispatch]);
 
     function handleSubmit(e) {
         e.preventDefault()

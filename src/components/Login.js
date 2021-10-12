@@ -35,15 +35,15 @@ export default function Login() {
     return function() {
       dispatch(clearErrors())
     }
-  }, []);
+  }, [dispatch]);
 
     function handleSubmit(e) {
         e.preventDefault()
       dispatch(userLogin(form))
     }
 
-    {
-      return isLoading ? (
+    
+      return (isLoading) ? (
         <Loading />
       ) : (
         <div className="form">
@@ -84,5 +84,4 @@ export default function Login() {
           ) : null}
         </div>
       );
-    }
 }

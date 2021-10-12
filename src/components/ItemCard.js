@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 import { addItemToCart } from "../features/cart/cartSlice";
 
 import { useDispatch, useSelector } from "react-redux";

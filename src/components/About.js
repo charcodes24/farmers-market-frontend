@@ -1,8 +1,6 @@
-import { useSelector } from "react-redux";
-
 export default function About() {
-  const customer = useSelector((state) => state.login.customer);
 
+  //STYLING
   const about = {
     padding: "8rem"
   }
@@ -11,9 +9,6 @@ export default function About() {
     padding: "2rem"
   }
 
-  const image = {
-    paddingTop: "1rem'"
-  }
     return (
       <div className="row text-center" style={about}>
         <div className="col-8 justify-content-center p-5">
