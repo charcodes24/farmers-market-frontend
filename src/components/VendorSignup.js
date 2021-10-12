@@ -87,14 +87,14 @@ export default function VendorSignup() {
             />
             <input
               onChange={handleInput}
-              type="text"
+              type="password"
               name="password"
               value={form.password}
               placeholder="password"
             />
             <input
               onChange={handleInput}
-              type="text"
+              type="password"
               name="password_confirmation"
               value={form.password_confirmation}
               placeholder="password confirmation"

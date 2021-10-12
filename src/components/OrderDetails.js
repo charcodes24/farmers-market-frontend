@@ -19,7 +19,7 @@ export default function OrderDetails() {
   const itemsArray = Object.entries(filteredItems)
   const displayItems = itemsArray.map(item => {
         return (
-          <div className="col-sm-4 p-5 card border-light">
+          <div key={item.id} className="col-sm-4 p-5 card border-light">
             <p>Item: {item[0]}</p>
             <p>Quantity: {item[1]}</p>
           </div>

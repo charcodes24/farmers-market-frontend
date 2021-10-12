@@ -5,7 +5,7 @@ export default function OrderLink({ order }) {
     
     return (
       <div className="col-sm-6 col-md-4 col-lg-3 p-5 card border-light">
-        <div classname="row">
+        <div>
           <Link to={`/orders/${id}`}>
             <p>Order #{id}</p>
           </Link>
