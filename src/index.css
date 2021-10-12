@@ -252,3 +252,9 @@ input {
 .my-orders {
   padding-top: 3rem;
 }
+
+.vendor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

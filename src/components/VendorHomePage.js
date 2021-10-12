@@ -25,10 +25,19 @@ export default function VendorHomePage() {
       return <ItemCard key={item.id} item={item} />;
     });
     return (
-      <div>
-        <div className="vendor">
+      <div className="vendor">
+        <div>
           <h1>{vendor.name}</h1>
-          <button class="btn" type="button" data-toggle="collapse" data-target="#addItem" aria-expanded="false" aria-controls="addItem">Add Item </button>
+          <button
+            class="btn"
+            type="button"
+            data-toggle="collapse"
+            data-target="#addItem"
+            aria-expanded="false"
+            aria-controls="addItem"
+          >
+            Add Item{" "}
+          </button>
 
           <div class="collapse" id="addItem">
             <AddItemForm />
