@@ -4,12 +4,14 @@ import { useSelector, useDispatch } from "react-redux"
 import { getOrders } from "../features/cart/cartSlice"
 
 import OrderLink from "./OrderLink"
+import Loading from "./Loading"
 
 export default function MyOrders() {
   //REDUX
   const dispatch = useDispatch()
   const customer = useSelector(state => state.login.customer)
   const orders = useSelector(state => state.cart.orders)
+  const isLoading = useSelector(state => state.cart.isLoading)
   
   useEffect(() => {
     dispatch(getOrders(customer.id))
@@ -17,9 +19,11 @@ export default function MyOrders() {
 
   const displayOrders = orders.map(order => <OrderLink key={order.id} order={order}/>)
     
-    return (
+    return isLoading ? (
+      <Loading />
+    ) : (
       <div className="my-orders text-center">
-        <div >
+        <div>
           {orders.length > 0 ? (
             <h1>My Orders</h1>
           ) : (
