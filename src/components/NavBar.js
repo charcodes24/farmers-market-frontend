@@ -29,7 +29,7 @@ export default function CustomerNavBar() {
         </NavLink>
         {customerLoggedIn || cartItems.length > 0 ? (
           <NavLink className="col-auto" to="/cart">
-            Cart
+            <i class="fas fa-shopping-cart"></i>
           </NavLink>
         ) : null}
         {customerLoggedIn || vendorLoggedIn ? null : (
@@ -48,9 +48,13 @@ export default function CustomerNavBar() {
           </NavLink>
         ) : null}
         {customerLoggedIn || vendorLoggedIn ? (
-          <button className="btn position-relative float-right" type="button" onClick={handleLogout}>
+          <button
+            className="btn position-relative float-right"
+            type="button"
+            onClick={handleLogout}
+          >
             Sign Out!
-            </button>
+          </button>
         ) : null}
       </div>
     );
