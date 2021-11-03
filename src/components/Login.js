@@ -9,7 +9,7 @@ import Loading from "./Loading";
 
 export default function Login() {
   //USEFORM HOOK
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const { register, handleSubmit, setFocus, formState: { errors } } = useForm();
 
 
   //DISPATCH ACTIONS FROM REDUX STORE
@@ -26,10 +26,8 @@ export default function Login() {
   })
   
   useEffect(() => {
-    return function() {
-      dispatch(clearErrors())
-    }
-  }, [dispatch]);
+   setFocus("username")
+  }, [setFocus]);
 
     function loginSubmit(data) {
       dispatch(userLogin(data))
