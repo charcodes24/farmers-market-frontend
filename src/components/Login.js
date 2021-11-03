@@ -1,9 +1,9 @@
-import { useState, useEffect } from "react"
+import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
-import { clearErrors, userLogin } from "../features/login/loginSlice";
+import { userLogin } from "../features/login/loginSlice";
 
 import Loading from "./Loading";
 
@@ -18,20 +18,14 @@ export default function Login() {
   //REDUX STORE
   const cartItems = useSelector(state => state.cart.cartItems)
   const isLoading = useSelector(state => state.login.isLoading)
-
-  //LOCAL STATEFUL VARIABLE
-  const [form, setForm] = useState({
-      username: "",
-      password: ""
-  })
   
   useEffect(() => {
    setFocus("username")
   }, [setFocus]);
 
-    function loginSubmit(data) {
-      dispatch(userLogin(data))
-    }
+  function loginSubmit(data) {
+    dispatch(userLogin(data))
+  }
 
     
       return (isLoading) ? (

@@ -103,10 +103,6 @@ const loginSlice = createSlice({
         state.customer = payload;
         state.customerLoggedIn = true;
       }
-    },
-    clearErrors(state) {
-      state.hasError = false;
-      state.errors = [];
     }
   },
   extraReducers: {
