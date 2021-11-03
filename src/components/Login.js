@@ -9,7 +9,7 @@ import Loading from "./Loading";
 
 export default function Login() {
   //USEFORM HOOK
-  const { register, handleSubmit, watch, formState: { errors } } = useForm();
+  const { register, handleSubmit, formState: { errors } } = useForm();
 
 
   //DISPATCH ACTIONS FROM REDUX STORE
@@ -18,23 +18,12 @@ export default function Login() {
   //REDUX STORE
   const cartItems = useSelector(state => state.cart.cartItems)
   const isLoading = useSelector(state => state.login.isLoading)
-  const hasError = useSelector(state => state.login.hasError)
-  // const errors = useSelector(state => state.login.errors)
 
   //LOCAL STATEFUL VARIABLE
   const [form, setForm] = useState({
       username: "",
       password: ""
   })
-
-
-    // function handleInput(e) {
-    //   setForm({
-    //     ...form,
-    //     [e.target.name]: e.target.value,
-    //   });
-    // }
-  
   
   useEffect(() => {
     return function() {
@@ -53,7 +42,6 @@ export default function Login() {
         <div className="form">
           <form className="fields" onSubmit={handleSubmit(loginSubmit)}>
             <input
-                type="text"
               {...register("username", { required: true })}
               placeholder="username"
               />
@@ -71,14 +59,6 @@ export default function Login() {
               <Link to="/signup_customer">here.</Link>
             </p>
           </form>
-          {/* {hasError ? (
-            <div className="alert">
-              <h3>Please fix the following:</h3>
-              {errors.map((error) => (
-                <p>{error}</p>
-              ))}
-            </div>
-          ) : null} */}
           {cartItems.length > 0 ? (
             <div className="alert">
               <h3>Please login or sign-up to place an order.</h3>
