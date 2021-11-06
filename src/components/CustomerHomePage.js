@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 
 import { getVendors, clearVendor } from "../features/vendor/vendorSlice"
 
-import About from "./About"
+import Header from "./Header"
 import VendorCard from "./VendorCard"
 
 export default function CustomerHomePage() {
@@ -21,7 +21,7 @@ export default function CustomerHomePage() {
 
     return (
       <div>
-        <About />
+        <Header />
         <div>
           <div className="row m-5 justify-content-center">
             {displayVendors}
