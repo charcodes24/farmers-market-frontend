@@ -1,9 +1,27 @@
+/* .first-color { 
+	background: #cbf078; 
+}
+	
+.second-color { 
+	background: #f8f398; 
+}
+
+.third-color { 
+	background: #f1b963; 
+}
+
+.fourth-color { 
+	background: #e46161; 
+} */
+
+
+
 .header {
     height: 70vh;
     background-image: linear-gradient(
         to right bottom, 
-        hsla(111, 55%, 64%, 0.801), 
-        hsla(160, 64%, 43%, 0.801)), 
+        hsla(210, 45%, 91%, 0.411) 0%, 
+        white 100%), 
         url(../images/alexander-schimmeck-2zJhA9RSkys-unsplash.jpg);
     background-size: cover;
     background-position: top;
@@ -16,10 +34,11 @@
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
+    z-index: 1;
 }
 
 .heading-primary {
-    color: #fff;
+    color: #35495e;
     text-transform: uppercase;
 
     backface-visibility: hidden;
