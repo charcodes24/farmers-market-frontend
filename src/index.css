@@ -12,3 +12,7 @@ body {
     color: #777;
     padding: 30px;
 }
+
+html {
+  font-size: 10px;
+}
