@@ -1,3 +1,19 @@
+/* .first-color { 
+	background: #cbf078; 
+}
+	
+.second-color { 
+	background: #f8f398; 
+}
+
+.third-color { 
+	background: #f1b963; 
+}
+
+.fourth-color { 
+	background: #e46161; 
+} */
+
 .flip-card {
   /* flex: 1 0 auto;
   margin: 5px;
@@ -7,9 +23,9 @@
 
 
   background-color: transparent;
-  width: 300px;
-  height: 200px;
-  border: 1px solid #f1f1f1;
+  width: 22rem;
+  height: 13rem;
+  margin: 1rem;
   perspective: 1000px; /* Remove this if you don't want the 3D effect */
 }
 
@@ -35,13 +51,13 @@
 }
 
 .flip-card-front {
-  background-color: #bbb;
+  background-color: #cbf078;
   color: black;
 }
 
 .flip-card-back {
-  background-color: dodgerblue;
-  color: white;
+  background-color: #f8f398;
+  color: f8f398;
   transform: rotateY(180deg);
 }
 

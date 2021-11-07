@@ -7,6 +7,7 @@ export default function VendorCard({ vendor }) {
 
   return (
     <div className="flip-card">
+      <Link to={`/vendors/${id}`}>
       <div className="flip-card-inner">
         <div className="flip-card-front">
           <Link to={`/vendors/${id}`} className="card-link">
@@ -17,6 +18,13 @@ export default function VendorCard({ vendor }) {
           <h1>{name}</h1>
         </div>
       </div>
+      </Link>
     </div>
   );
 }
+
+
+
+{/* <Link to={`/vendors/${id}`} className="card-link">
+  <p>{name}</p>
+</Link>; */}
