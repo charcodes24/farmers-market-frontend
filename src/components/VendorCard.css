@@ -15,13 +15,6 @@
 } */
 
 .flip-card {
-  /* flex: 1 0 auto;
-  margin: 5px;
-  width: 12rem;
-  height: 12rem;
-  margin-top: 10rem; */
-
-
   background-color: transparent;
   width: 22rem;
   height: 13rem;
@@ -43,6 +36,7 @@
 }
 
 .flip-card-front, .flip-card-back {
+  border-radius: 10px;
   position: absolute;
   width: 100%;
   height: 100%;
@@ -52,13 +46,18 @@
 
 .flip-card-front {
   background-color: #cbf078;
-  color: black;
+  color: rgb(64, 60, 121);
 }
 
 .flip-card-back {
   background-color: #f8f398;
-  color: f8f398;
+  color: #e46161;
   transform: rotateY(180deg);
+  margin: auto;
+}
+
+.card-description {
+    margin: 3rem;
 }
 
 .card-link {
