@@ -19,23 +19,18 @@ export default function OrderDetails() {
   const itemsArray = Object.entries(filteredItems)
   const displayItems = itemsArray.map(item => {
         return (
-          <div key={item.id} className="col-sm-4 p-5 card border-light">
+          <div key={item.id}>
             <p>Item: {item[0]}</p>
             <p>Quantity: {item[1]}</p>
           </div>
         );
     })
 
-  //STYLING
-  const card = {
-    marginTop: "18%"
-  };
-
     
     return (
-      <div className="text-center" style={card}>
+      <div>
         <h1>This order was placed on {thisOrder.date_placed}</h1>
-        <div className="row m-5 justify-content-center">{displayItems}</div>
+        <div>{displayItems}</div>
         <h4>Order Total: ${thisOrder.subtotal}</h4>
       </div>
     );

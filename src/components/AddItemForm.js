@@ -30,8 +30,8 @@ export default function AddItmForm() {
 
 
     return (
-      <div className="add-item">
-        <form className="add-itemform" onSubmit={handleSubmit}>
+      <div>
+        <form onSubmit={handleSubmit}>
                 <input
                 onChange={handleInput} 
                 type="text" 
@@ -53,7 +53,7 @@ export default function AddItmForm() {
                 name="price" 
                 placeholder="price" 
                 />
-          <button type="submit" className="btn">OK</button>
+          <button type="submit">OK</button>
         </form>
       </div>
     );

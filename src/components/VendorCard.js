@@ -12,10 +12,10 @@ export default function VendorCard({ vendor }) {
 
 
     return (
-      <div className="col-sm-4 p-5 card border-light" style={card}>
+      <div style={card}>
         <div>
           <Link to={`/vendors/${id}`}>
-            <p className="card-title text-center">{name}</p>
+            <p>{name}</p>
           </Link>
         </div>
       </div>

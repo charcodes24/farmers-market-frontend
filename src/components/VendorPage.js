@@ -28,14 +28,14 @@ export default function VendorPage() {
   } else {
     const displayItems = items.map((item) => <ItemCard key={item.id} item={item} />)
     return (
-      <div className="vendor container mt-5 mb-5">
-        <div className="row">
+      <div>
+        <div>
           <h1>{vendor.name}</h1>
         </div>
-        <div classname="row">
+        <div>
           <p>{vendor.description}</p>
         </div>
-        <div className="row mt-3">
+        <div>
           <div>{displayItems}</div>
         </div>
       </div>

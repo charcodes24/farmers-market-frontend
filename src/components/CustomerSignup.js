@@ -29,7 +29,6 @@ export default function CustomerSignup() {
     return (
       <div>
         <form
-          className="signup-form"
           onSubmit={handleSubmit(submitCreateCustomer)}
         >
           <input {...register("name", { required: true })} placeholder="name" />
@@ -54,8 +53,8 @@ export default function CustomerSignup() {
             placeholder="re-type password"
           />
           {errors.passwordConfirmation?.type === "required" && "*required"}
-          <button className="btn">Sign Up!</button>
-          <p className="link">
+          <button>Sign Up!</button>
+          <p>
             Are you a vendor? Sign-up <Link to="/signup_vendor">here.</Link>
           </p>
         </form>

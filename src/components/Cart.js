@@ -55,33 +55,28 @@ export default function Cart() {
     }
   }
 
-  //STYLING
-  const card = {
-    marginTop: "18%",
-  };
-
   return (
-    <div className="container">
+    <div>
       {cartItems.length > 0 ? (
         <div>
-          <div className="row mt-5 justify-content-center">
+          <div>
             <h1>Your Cart:</h1>
           </div>
-          <div className="row justify-content-center">{displayCart}</div>
-          <div className="row justify-content-center">
+          <div>{displayCart}</div>
+          <div>
             <h2>Total: ${total}</h2>
           </div>
-          <div className="buttons row justify-content-center">
-            <button type="submit" className="btn group" onClick={handlePlaceOrder}>
+          <div>
+            <button type="submit" onClick={handlePlaceOrder}>
               Place Order
             </button>
-            <button type="button" className="btn group" onClick={handleClearCart}>
+            <button type="button" onClick={handleClearCart}>
               Clear Cart
             </button>
           </div>
         </div>
       ) : (
-        <div className="row justify-content-center" style={card}>
+        <div>
           <h3>Your cart is empty.</h3>
         </div>
       )}

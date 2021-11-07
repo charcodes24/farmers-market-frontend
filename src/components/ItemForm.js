@@ -39,7 +39,7 @@ export default function ItemForm({ item }) {
 
     return (
       <div>
-        <form className="update-item" onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
           <input
             onChange={handleInput}
             type="text"
@@ -61,12 +61,12 @@ export default function ItemForm({ item }) {
             value={form.price}
             placeholder={price}
           />
-          <button className="btn" type="submit">
+          <button type="submit">
             Ok
           </button>
         </form>
         {hasError ? (
-          <div className="alert">
+          <div>
             <h3>Please fix the following:</h3>
             {errors.map((error) => (
               <p>{error}</p>

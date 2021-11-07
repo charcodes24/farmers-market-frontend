@@ -22,16 +22,16 @@ export default function MyOrders() {
     return isLoading ? (
       <Loading />
     ) : (
-      <div className="my-orders text-center">
+      <div>
         <div>
           {orders.length > 0 ? (
             <h1>My Orders</h1>
           ) : (
-            <h3 className="form">You haven't placed any orders yet.</h3>
+            <h3>You haven't placed any orders yet.</h3>
           )}
         </div>
         <div>
-          <div className="row m-5 justify-content-center">{displayOrders}</div>
+          <div>{displayOrders}</div>
         </div>
       </div>
     );

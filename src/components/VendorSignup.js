@@ -28,7 +28,7 @@ export default function VendorSignup() {
 
   return (
     <div>
-      <form className="signup-vendor" onSubmit={handleSubmit(submitCreateVendor)}>
+      <form onSubmit={handleSubmit(submitCreateVendor)}>
         <input {...register("name", { required: true })} placeholder="name" />
         {errors.name?.type === "required" && "*required"}
         <textarea
@@ -56,7 +56,7 @@ export default function VendorSignup() {
         <button type="submit" className="btn signup">
           Sign Up!
         </button>
-        <p className="link">
+        <p>
           Are you a customer? Sign-up <Link to="/signup_customer">here.</Link>
         </p>
       </form>

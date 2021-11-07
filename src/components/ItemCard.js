@@ -17,19 +17,18 @@ export default function ItemCard({ item }) {
   }
 
     return (
-      <div className="col-md-4">
+      <div>
         <img src={image_url} alt={name} />
         <div>
           <h3>{name}</h3>
           <h4>${price}</h4>
           {!vendorLoggedIn ? (
-            <button onClick={() => addToCart(item)} className="btn">
+            <button onClick={() => addToCart(item)}>
               Add
             </button>
           ) : null}
           {item.vendor_id === vendor.id ? (
             <button
-              className="btn"
               type="button"
               data-toggle="collapse"
               data-target={"#update" + id}
@@ -40,7 +39,7 @@ export default function ItemCard({ item }) {
             </button>
           ) : null}
         </div>
-        <div class="collapse" id={"update" + id}>
+        <div id={"update" + id}>
           <ItemForm item={item} />
         </div>
       </div>

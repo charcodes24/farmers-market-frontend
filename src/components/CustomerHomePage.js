@@ -23,7 +23,7 @@ export default function CustomerHomePage() {
       <div>
         <Header />
         <div>
-          <div className="row m-5 justify-content-center">
+          <div>
             {displayVendors}
           </div>
         </div>

@@ -14,11 +14,11 @@ export default function CartItem({ item }) {
 
 
     return (
-        <div className="col-12 p-4">
+        <div>
           <h6>{name}</h6>
           <p>Price: ${price}</p>
           <p>Quantity: {item.quantity}</p>
-          <button className="btn" type="button" onClick={handleDecreaseQuantity}>
+          <button type="button" onClick={handleDecreaseQuantity}>
             {item.quantity === 1 ? "Remove Item" : "Decrease Quantity"}
           </button>
         </div>

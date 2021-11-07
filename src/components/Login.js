@@ -31,8 +31,8 @@ export default function Login() {
       return (isLoading) ? (
         <Loading />
       ) : (
-        <div className="form">
-          <form className="fields" onSubmit={handleSubmit(loginSubmit)}>
+        <div>
+          <form onSubmit={handleSubmit(loginSubmit)}>
             <input
               {...register("username", { required: true })}
               placeholder="username"
@@ -44,7 +44,7 @@ export default function Login() {
               placeholder="password"
               />
               {errors.password?.type === 'required' && "Password is required"}
-            <button type="submit" className="btn">Log-In!</button>
+            <button type="submit">Log-In!</button>
 
             <p>
               Don't have an account? Sign-up{" "}
@@ -52,7 +52,7 @@ export default function Login() {
             </p>
           </form>
           {cartItems.length > 0 ? (
-            <div className="alert">
+            <div>
               <h3>Please login or sign-up to place an order.</h3>
             </div>
           ) : null}

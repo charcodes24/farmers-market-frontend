@@ -25,11 +25,10 @@ export default function VendorHomePage() {
       return <ItemCard key={item.id} item={item} />;
     });
     return (
-      <div className="vendor">
+      <div>
         <div>
           <h1>{vendor.name}</h1>
           <button
-            class="btn"
             type="button"
             data-toggle="collapse"
             data-target="#addItem"
@@ -39,11 +38,11 @@ export default function VendorHomePage() {
             Add Item{" "}
           </button>
 
-          <div class="collapse" id="addItem">
+          <div id="addItem">
             <AddItemForm />
           </div>
         </div>
-        <div className="item">{displayItems}</div>
+        <div>{displayItems}</div>
       </div>
     );
   }
