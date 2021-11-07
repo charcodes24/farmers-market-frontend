@@ -1,0 +1,17 @@
+.vendor-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: auto;
+  align-content: start;
+  margin: 7rem;
+}
+
+
+/* .vendor-container:after {
+  display: block;
+  content: "";
+  margin: 20px;
+  flex: 999 999 auto;
+} */

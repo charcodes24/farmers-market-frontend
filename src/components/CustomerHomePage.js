@@ -6,6 +6,8 @@ import { getVendors, clearVendor } from "../features/vendor/vendorSlice"
 import Header from "./Header"
 import VendorCard from "./VendorCard"
 
+import './CustomerHomePage.css'
+
 export default function CustomerHomePage() {
   //REDUX
     const dispatch = useDispatch()
@@ -22,10 +24,8 @@ export default function CustomerHomePage() {
     return (
       <div>
         <Header />
-        <div>
-          <div>
-            {displayVendors}
-          </div>
+        <div className="vendor-container">
+          {displayVendors}
         </div>
       </div>
     );
