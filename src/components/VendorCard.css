@@ -48,18 +48,21 @@
   background-color: rgba(202, 240, 120, 0.336);
   color: rgb(64, 60, 121);
   padding: 5rem;
-  font-weight: 900;
+  font-size: 2rem;
   text-transform: uppercase;
 }
 
 .flip-card-back {
   background-color: #f8f398a4;
   color: #e46161;
+  font-size: 2rem;
+  font-weight: 200;
   transform: rotateY(180deg);
   margin: auto;
 }
 
 .card-description {
+    margin-top: 4rem;
     margin: 3rem;
     padding: 1rem;
 }
