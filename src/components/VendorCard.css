@@ -17,7 +17,7 @@
 .flip-card {
   background-color: transparent;
   width: 22rem;
-  height: 13rem;
+  height: 15rem;
   margin: 1rem;
   perspective: 1000px; /* Remove this if you don't want the 3D effect */
 }
@@ -45,12 +45,15 @@
 }
 
 .flip-card-front {
-  background-color: #cbf078;
+  background-color: rgba(202, 240, 120, 0.336);
   color: rgb(64, 60, 121);
+  padding: 5rem;
+  font-weight: 900;
+  text-transform: uppercase;
 }
 
 .flip-card-back {
-  background-color: #f8f398;
+  background-color: #f8f398a4;
   color: #e46161;
   transform: rotateY(180deg);
   margin: auto;
@@ -58,6 +61,12 @@
 
 .card-description {
     margin: 3rem;
+    padding: 1rem;
+}
+
+.card-description:first-child, 
+.card-description:last-child {
+    margin-top: 1rem;
 }
 
 .card-link {
